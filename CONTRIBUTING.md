@@ -8,6 +8,6 @@ Gunakan format:
 
 - `feat`: menambahkan fitur baru
 - `fix`: memperbaiki bug
-- `style`: perubahan formatting/tampilan
+- `style`: perubahan formatting/tampilan/design
 - `docs`: perubahan dokumentasi
 - `refactor`: merapikan struktur kode tanpa mengubah fitur
