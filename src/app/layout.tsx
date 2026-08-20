@@ -1,45 +1,45 @@
-import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
-import "./globals.css";
+import type { Metadata } from 'next';
+import { Plus_Jakarta_Sans } from 'next/font/google';
+import './globals.css';
 
 const plusJakarta = Plus_Jakarta_Sans({
-  variable: "--font-jakarta",
-  subsets: ["latin"],
+  variable: '--font-jakarta',
+  subsets: ['latin'],
 });
 
 export const metadata: Metadata = {
-  title: "Karsa Community",
-  description: "Karsa Community",
+  title: 'Karsa Community',
+  description: 'Karsa Community',
   keywords: [
-    "Karsa Community",
-    "komunitas",
-    "komunitas pemuda",
-    "komunitas generasi muda",
-    "komunitas Indonesia",
-    "kegiatan komunitas",
-    "kegiatan pemuda",
-    "kolaborasi",
-    "volunteer",
+    'Karsa Community',
+    'komunitas',
+    'komunitas pemuda',
+    'komunitas generasi muda',
+    'komunitas Indonesia',
+    'kegiatan komunitas',
+    'kegiatan pemuda',
+    'kolaborasi',
+    'volunteer',
   ],
   authors: [
     {
-      name: "Karsa Community",
+      name: 'Karsa Community',
     },
   ],
-  creator: "Karsa Community",
-  publisher: "Karsa Community",
+  creator: 'Karsa Community',
+  publisher: 'Karsa Community',
   robots: {
     index: true,
     follow: true,
     googleBot: {
       index: true,
       follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
     },
   },
-  category: "community",
+  category: 'community',
 };
 
 export default function RootLayout({
@@ -49,7 +49,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id" className={`${plusJakarta.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="flex min-h-full flex-col">{children}</body>
     </html>
   );
 }

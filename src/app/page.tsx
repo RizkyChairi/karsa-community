@@ -1,5 +1,3 @@
 export default function Page() {
-  return (
-    <div>CUMEetm</div>
-  )
+  return <div>CUMEetm</div>;
 }
