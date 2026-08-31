@@ -58,4 +58,18 @@ export function Navbar() {
       document.body.style.overflow = "unset"
     }
   }, [isMenuOpen])
+
+  const handleclickOutstideDropdown = (event: MouseEvent) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      setIsDropdownOpen(false)
+    }
+  }
+
+  const handlekeydown = (event: KeyboardEvent) => {
+    if (event.key == "Escape") {
+      setIsDropdownOpen(false);
+      setIsMenuOpen(false);
+    }
+  }
+
 }
