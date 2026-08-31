@@ -16,16 +16,15 @@ const navLinks: NavLink[] = [
   { href: "#beranda", label: "Beranda" },
   {
     href: "#tentang",
-    label: "Jelajahi",
+    label: "Tentang Kami",
     hasDropdown: true,
     options: [
-      { href: "#tentang", label: "Mengenal KompasDesa" },
-      { href: "#alurweb", label: "Bagaimana Kami Bekerja" },
-      { href: "#komoditaslist", label: "Jelajah Komoditas" },
-      { href: "#keamanan", label: "Mengapa KompasDesa" },
+      { href: "#tentang", label: "Tentang KompasDesa" },
+      { href: "#visi-misi", label: "Visi & Misi" },
+      { href: "#kegiatan", label: "Kegiatan Kami" },
+      { href: "#dampak", label: "Dampak & Kontribusi" },
     ],
   },
-  { href: "#layanan", label: "Layanan" },
-  { href: "#testimoni", label: "Testimoni" },
-  { href: "/kompas-desa/contact", label: "Kontak" },
+  { href: "#galeri", label: "Galeri" },
+  { href: "#hubungi", label: "Hubungi Kami" },
 ]
