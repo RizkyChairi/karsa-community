@@ -7,6 +7,7 @@ const plusJakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
 });
 
+
 export const metadata: Metadata = {
   title: 'Karsa Community',
   description: 'Karsa Community',
