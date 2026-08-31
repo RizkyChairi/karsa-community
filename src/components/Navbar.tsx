@@ -71,22 +71,81 @@ export function Navbar() {
         tick = false
       })
     }
-  })
 
 
-  const handleclickOutstideDropdown = (event: MouseEvent) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-      setIsDropdownOpen(false)
+
+    const handleclickOutstideDropdown = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false)
+      }
     }
+
+    const handlekeydown = (event: KeyboardEvent) => {
+      if (event.key == "Escape") {
+        setIsDropdownOpen(false);
+        setIsMenuOpen(false);
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    document.addEventListener("mousedown", handleclickOutstideDropdown)
+    document.addEventListener("keydown", handlekeydown)
+
+    // Clean
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+      document.removeEventListener("mousedown", handleclickOutstideDropdown)
+      document.removeEventListener("keydown", handlekeydown)
+    }
+  }, [])
+
+  useEffect(() => {
+    const sectionIds = [
+      "beranda",
+      "tentang",
+      "visi-misi",
+      "kegiatan",
+      "dampak",
+      "galeri",
+      "hubungi",
+    ]
+
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter(Boolean) as HTMLElement[]
+
+    if (sections.length === 0) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActiveLink(`#${entry.target.id}`)
+          }
+        }
+      },
+      {
+        rootMargin: "-30% 0px -60% 0px",
+        threshold: 0
+      }
+    )
+    sections.forEach((section) => {
+      observer.observe(section)
+      return () => observer.disconnect()
+    })
+  }, [])
+
+  const handleNavclicked = (href: string) => {
+    setActiveLink(href)
+    setIsDropdownOpen(false)
+    if (isMenuOpen) toggleMenu()
   }
 
-  const handlekeydown = (event: KeyboardEvent) => {
-    if (event.key == "Escape") {
-      setIsDropdownOpen(false);
-      setIsMenuOpen(false);
-    }
-  }
-
+  const dropdownActived =
+    ActiveLink === "tentang" ||
+    ActiveLink === "visi-misi" ||
+    ActiveLink === "kegiatan" ||
+    ActiveLink === "dampak"
 
 
 }
