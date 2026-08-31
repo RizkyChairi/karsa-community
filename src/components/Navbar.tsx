@@ -1,5 +1,7 @@
 "use client"
 
+import { useCallback, useRef, useState, useEffect } from "react"
+
 interface DropdownOption {
   href: string
   label: string
@@ -30,4 +32,15 @@ const navLinks: NavLink[] = [
 ]
 
 export function Navbar() {
+  const [ActiveLink, setActiveLink] = useState("#beranda");
+
+  // Mobile
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobileJelajahiOpen, setIsMobileJelajahiOpen] = useState(false)
+
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  const dropdownRef = useRef<HTMLDivElement>(null);
 }
