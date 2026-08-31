@@ -43,4 +43,19 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
 
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // usecallback = tidak render ulang
+  const toggleMenu = useCallback(() => setIsMenuOpen((prev) => !prev), [])
+
+  // mobile device
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = "unset"
+    }
+    return () => {
+      document.body.style.overflow = "unset"
+    }
+  }, [isMenuOpen])
 }
