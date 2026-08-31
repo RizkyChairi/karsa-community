@@ -59,6 +59,21 @@ export function Navbar() {
     }
   }, [isMenuOpen])
 
+  // detect scroll move
+  useEffect(() => {
+    let tick = false
+    const handleScroll = () => {
+      if (tick) return;
+      tick = true
+
+      requestAnimationFrame(() => {
+        setIsScrolled(window.scrollY > 20)
+        tick = false
+      })
+    }
+  })
+
+
   const handleclickOutstideDropdown = (event: MouseEvent) => {
     if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
       setIsDropdownOpen(false)
@@ -71,5 +86,7 @@ export function Navbar() {
       setIsMenuOpen(false);
     }
   }
+
+
 
 }
