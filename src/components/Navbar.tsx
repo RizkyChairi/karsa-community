@@ -28,3 +28,6 @@ const navLinks: NavLink[] = [
   { href: "#galeri", label: "Galeri" },
   { href: "#hubungi", label: "Hubungi Kami" },
 ]
+
+export function Navbar() {
+}
