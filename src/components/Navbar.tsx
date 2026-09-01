@@ -154,27 +154,17 @@ export function Navbar() {
 
   // Side Line
   const sideLineBaseClasses = "relative pl-3 transition-colors duration-300 after:content-[''] after:absolute after:left-0 after:top-1/2 after:-translate-y-1/2 after:w-[5px] after:bg-[var(--line-color)] after:transition-all after:duration-300 after:rounded-full"
-
-  //   .after\: bg-\[\#029246\]::after {
-  //   content: var(--tw - content);
-  //   background - color: #029246;
-  // }
-  // @property--tw - content {
-  //   syntax: "*";
-  //   initial - value: "";
-  //   inherits: false;
-  // }
   return (
     <>
       <nav
         className={`
           fixed left-1/2 -translate-x-1/2 z-[999] 
           px-6 sm:px-8 flex items-center justify-between gap-6 rounded-[14px] 
-          transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] shadow-sm
+          transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
 
           ${isScrolled
-            ? "top-3 sm:top-4 w-[92%] sm:w-[88%] md:w-[85%] lg:w-[1112px] py-2.5 md:py-4 bg-white/70 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.08)]"
-            : "top-6 w-[95%] md:w-[92%] lg:w-[1200px] py-4 bg-white shadow-none"
+            ? "top-3 sm:top-4 w-[92%] sm:w-[88%] md:w-[85%] lg:w-[1112px] py-2.5 md:py-4 bg-white/80 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] shadow-sm"
+            : "top-6 w-[95%] md:w-[92%] lg:w-[1200px] py-4 bg-white "
           }
         `}
       >
