@@ -27,7 +27,7 @@ const navLinks: NavLink[] = [
     color: "#5076ff",
     hasDropdown: true,
     options: [
-      { href: "#tentang", label: "Tentang KompasDesa" },
+      { href: "#tentang", label: "Tentang Karsa" },
       { href: "#visi-misi", label: "Visi & Misi" },
       { href: "#kegiatan", label: "Kegiatan Kami" },
       { href: "#dampak", label: "Dampak & Kontribusi" },
@@ -282,10 +282,10 @@ export function Navbar() {
             href="/daftar"
             className="hidden sm:inline-flex items-center justify-center
             px-5 py-2.5 rounded-xl
-            bg-[#025246] text-white
+            bg-[#252525] text-white
             text-sm font-semibold whitespace-nowrap
             transition-all duration-300
-            hover:bg-[#024036] hover:shadow-lg hover:shadow-[#025246]/20
+            hover:bg-[#171818] hover:shadow-[#025246]/20
             active:scale-95"
           >
             Gabung Komunitas
