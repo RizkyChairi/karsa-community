@@ -1,14 +1,55 @@
-export default function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+"use client"
+
+import { useCallback, useRef, useState, useEffect } from "react"
+import Link from "next/link"
+import Image from "next/image"
+import { ChevronDown, Menu, X } from "lucide-react"
+
+interface DropdownOption {
+  href: string
+  label: string
+}
+
+interface NavLink {
+  href: string
+  label: string
+  hasDropdown?: boolean
+  options?: DropdownOption[]
+}
+
+const navLinks: NavLink[] = [
+  { href: "#beranda", label: "Beranda" },
+  {
+    href: "#tentang",
+    label: "Tentang Kami",
+    hasDropdown: true,
+    options: [
+      { href: "#tentang", label: "Tentang KompasDesa" },
+      { href: "#visi-misi", label: "Visi & Misi" },
+      { href: "#kegiatan", label: "Kegiatan Kami" },
+      { href: "#dampak", label: "Dampak & Kontribusi" },
+    ],
+  },
+  { href: "#galeri", label: "Galeri" },
+  { href: "#hubungi", label: "Hubungi Kami" },
+]
+
+export function Navbar() {
   const [activeLink, setActiveLink] = useState("#beranda")
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+
+  // Mobile state
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isMobileJelajahiOpen, setIsMobileJelajahiOpen] = useState(false)
+
+  // Desktop Dropdown & Scroll state
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
 
   const dropdownRef = useRef<HTMLDivElement>(null)
 
   const toggleMenu = useCallback(() => setIsMenuOpen((prev) => !prev), [])
 
+  // Lock scroll saat menu mobile terbuka
   useEffect(() => {
     if (isMenuOpen) {
       document.body.style.overflow = "hidden"
@@ -20,25 +61,26 @@ export default function Navbar() {
     }
   }, [isMenuOpen])
 
+  // Scroll listener & event listener click outside / keydown
   useEffect(() => {
-    let ticking = false
-
+    let tick = false
     const handleScroll = () => {
-      if (ticking) return
-      ticking = true
+      if (tick) return
+      tick = true
+
       requestAnimationFrame(() => {
         setIsScrolled(window.scrollY > 20)
-        ticking = false
+        tick = false
       })
     }
 
-    const handleClickOutside = (event: MouseEvent) => {
+    const handleclickOutsideDropdown = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setIsDropdownOpen(false)
       }
     }
 
-    const handleKeyDown = (event: KeyboardEvent) => {
+    const handlekeydown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setIsDropdownOpen(false)
         setIsMenuOpen(false)
@@ -46,18 +88,28 @@ export default function Navbar() {
     }
 
     window.addEventListener("scroll", handleScroll, { passive: true })
-    document.addEventListener("mousedown", handleClickOutside)
-    document.addEventListener("keydown", handleKeyDown)
+    document.addEventListener("mousedown", handleclickOutsideDropdown)
+    document.addEventListener("keydown", handlekeydown)
 
     return () => {
       window.removeEventListener("scroll", handleScroll)
-      document.removeEventListener("mousedown", handleClickOutside)
-      document.removeEventListener("keydown", handleKeyDown)
+      document.removeEventListener("mousedown", handleclickOutsideDropdown)
+      document.removeEventListener("keydown", handlekeydown)
     }
   }, [])
 
+  // Intersection Observer untuk scrollspy
   useEffect(() => {
-    const sectionIds = ["beranda", "tentang", "alurweb", "komoditaslist", "keamanan", "layanan", "testimoni"]
+    const sectionIds = [
+      "beranda",
+      "tentang",
+      "visi-misi",
+      "kegiatan",
+      "dampak",
+      "galeri",
+      "hubungi",
+    ]
+
     const sections = sectionIds
       .map((id) => document.getElementById(id))
       .filter(Boolean) as HTMLElement[]
@@ -72,10 +124,16 @@ export default function Navbar() {
           }
         }
       },
-      { rootMargin: "-30% 0px -60% 0px", threshold: 0 }
+      {
+        rootMargin: "-30% 0px -60% 0px",
+        threshold: 0,
+      }
     )
 
-    sections.forEach((section) => observer.observe(section))
+    sections.forEach((section) => {
+      observer.observe(section)
+    })
+
     return () => observer.disconnect()
   }, [])
 
@@ -87,17 +145,17 @@ export default function Navbar() {
 
   const isJelajahiActive =
     activeLink === "#tentang" ||
-    activeLink === "#alurweb" ||
-    activeLink === "#komoditaslist" ||
-    activeLink === "#keamanan"
+    activeLink === "#visi-misi" ||
+    activeLink === "#kegiatan" ||
+    activeLink === "#dampak"
 
   return (
     <>
       <nav
         className={`
-          fixed left-1/2 -translate-x-1/2 z-[999]
-          px-6 sm:px-8 flex items-center justify-between gap-6 rounded-3xl
-          transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
+          fixed left-1/2 -translate-x-1/2 z-[999] 
+          px-6 sm:px-8 flex items-center justify-between gap-6 rounded-3xl 
+          transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] 
 
           ${isScrolled
             ? "top-3 sm:top-4 w-[92%] sm:w-[88%] md:w-[85%] lg:w-[1112px] py-2.5 md:py-3 bg-white/70 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-white/40"
@@ -126,8 +184,8 @@ export default function Navbar() {
                     onClick={() => setIsDropdownOpen((prev) => !prev)}
                     aria-haspopup="menu"
                     aria-expanded={isDropdownOpen}
-                    className={`flex items-center gap-1.5 relative pb-1 transition-colors duration-300
-                      after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:h-[2.5px] after:bg-[#025246] after:rounded-full after:transition-all after:duration-300
+                    className={`flex items-center gap-1.5 relative pb-1 transition-colors duration-300 
+                      after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:h-[2.5px] after:bg-[#025246] after:rounded-full after:transition-all after:duration-300 
                       ${isJelajahiActive
                         ? "text-[#025246] after:w-full"
                         : "text-[#1D1D1D] hover:text-[#025246] after:w-0 hover:after:w-full"
@@ -220,8 +278,8 @@ export default function Navbar() {
       <div
         id="mobile-menu"
         aria-hidden={!isMenuOpen}
-        className={`fixed top-0 right-0 h-full w-72 bg-white/95 backdrop-blur-xl z-[999] shadow-2xl
-        transform transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] md:hidden overflow-y-auto flex flex-col justify-between
+        className={`fixed top-0 right-0 h-full w-72 bg-white/95 backdrop-blur-xl z-[999] shadow-2xl 
+        transform transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] md:hidden overflow-y-auto flex flex-col justify-between 
         ${isMenuOpen ? "translate-x-0" : "translate-x-full"}`}
       >
         <div>

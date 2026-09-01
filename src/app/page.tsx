@@ -1,9 +1,5 @@
-import Navbar from "@/components/Navbar";
+import { redirect } from "next/navigation"
 
-export default function Page() {
-  return (
-    <div className="relative z-[999] w-full">
-      <Navbar />
-    </div>
-  )
+export default function Home() {
+  redirect("/karsa")
 }
