@@ -53,7 +53,7 @@ export default function FloatingVideo() {
           <X size={14} />
         </button>
 
-        {/* Thumbnail */}
+        {/* ================= THUMBNAIL ================= */}
         {!isStarted ? (
           <button
             onClick={startVideo}
@@ -65,6 +65,7 @@ export default function FloatingVideo() {
               text-left
             "
           >
+            {/* YouTube Thumbnail */}
             <img
               src="https://img.youtube.com/vi/M_OauHnAFc8/maxresdefault.jpg"
               alt="Komunitas Kami"
@@ -77,33 +78,56 @@ export default function FloatingVideo() {
               "
             />
 
+            {/* Gradient */}
             <div className="
               absolute inset-0
               bg-gradient-to-t
               from-black/80
               via-black/20
               to-transparent
+              transition-opacity
+              duration-300
+              group-hover:opacity-90
             " />
 
+            {/* Play Button */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="
-                flex h-11 w-11
-                items-center justify-center
-                rounded-full
-                bg-white/15
-                backdrop-blur-md
-                border border-white/30
-                text-white
-                shadow-lg
-              ">
+              <div
+                className="
+                  relative flex h-11 w-11
+                  items-center justify-center
+                  rounded-full
+                  bg-white/15
+                  backdrop-blur-md
+                  border border-white/30
+                  text-white
+                  shadow-lg
+                  transition-all duration-300
+                  group-hover:scale-110
+                  group-hover:bg-white/25
+                  group-hover:border-white/50
+                "
+              >
+                <div
+                  className="
+                    absolute inset-0
+                    rounded-full
+                    bg-white/20
+                    animate-ping
+                    opacity-25
+                    pointer-events-none
+                  "
+                />
+
                 <Play
                   size={16}
                   fill="white"
-                  className="ml-0.5"
+                  className="ml-0.5 text-white"
                 />
               </div>
             </div>
 
+            {/* Bottom Info */}
             <div className="
               absolute
               bottom-3
@@ -122,29 +146,43 @@ export default function FloatingVideo() {
               ">
                 Komunitas Kami
               </span>
-
-              <span className="
-                text-[10px]
-                font-medium
-                text-white/40
-              ">
-                Present- Karsa
-              </span>
+              <span className="text-[10px] font-medium text-white/40">Present- Karsa</span>
             </div>
           </button>
         ) : (
+
           <div className="relative h-[140px] w-full bg-black">
 
-            {/* Video */}
             <video
               ref={videoRef}
               src="/videos/Attack on Titan Season 4 (Final Season) - Official Trailer.mp4"
               autoPlay
               muted={isMuted}
               playsInline
+
+              onLoadedMetadata={(e) => {
+                if (e.currentTarget.currentTime >= 0) {
+                  e.currentTarget.currentTime = 86
+                }
+              }}
+
+              onTimeUpdate={(e) => {
+                if (e.currentTarget.currentTime >= 125) {
+                  e.currentTarget.currentTime = 86
+                }
+              }}
+
               onPlay={() => setIsPlaying(true)}
+
               onPause={() => setIsPlaying(false)}
+
+              onEnded={(e) => {
+                e.currentTarget.currentTime = 86
+                e.currentTarget.play()
+              }}
+
               onClick={togglePlay}
+
               className="
                 h-full
                 w-full
@@ -153,29 +191,50 @@ export default function FloatingVideo() {
               "
             />
 
-            {/* Play Indicator */}
+
+            <div className="
+              absolute
+              inset-0
+              bg-gradient-to-t
+              from-black/60
+              via-transparent
+              to-transparent
+              opacity-0
+              group-hover:opacity-100
+              transition-opacity
+              duration-200
+              pointer-events-none
+            " />
+
+            {/* Pause / Play Indicator */}
             {!isPlaying && (
-              <div className="
-                pointer-events-none
-                absolute
-                inset-0
-                flex
-                items-center
-                justify-center
-              ">
+              <div
+                className="
+                  pointer-events-none
+                  absolute
+                  inset-0
+                  flex
+                  items-center
+                  justify-center
+                "
+              >
                 <div className="
-                  flex h-11 w-11
+                  flex
+                  h-11
+                  w-11
                   items-center
                   justify-center
                   rounded-full
                   bg-black/50
                   backdrop-blur-md
-                  border border-white/20
+                  border
+                  border-white/20
                   text-white
                 ">
                   <Play
                     size={16}
                     fill="white"
+                    className="ml-0.5"
                   />
                 </div>
               </div>
@@ -193,15 +252,19 @@ export default function FloatingVideo() {
                 bottom-2
                 right-2
                 z-50
-                flex h-7 w-7
+                flex
+                h-7
+                w-7
                 items-center
                 justify-center
                 rounded-full
                 bg-black/60
                 text-white/90
                 backdrop-blur-md
-                border border-white/10
-                transition-all duration-200
+                border
+                border-white/10
+                transition-all
+                duration-200
                 hover:bg-black/90
                 hover:text-white
                 hover:scale-105
