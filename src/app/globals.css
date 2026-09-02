@@ -15,3 +15,17 @@ body {
   background: #ffffff;
   color: #171717;
 }
+
+::selection {
+  background: #fdd004;
+  color: #242323;
+}
+
+@theme {
+  --color-karsa-green: #9bdb35;
+  --color-karsa-blue: #5076ff;
+  --color-karsa-purple: #b764ff;
+  --color-karsa-yellow: #ecab1d;
+
+  --color-karsa-black: #252525;
+}

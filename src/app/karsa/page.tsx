@@ -1,17 +1,29 @@
+"use client"
+
+import { Beranda } from "@/components/landing/beranda/Beranda"
+import DotPattern from "@/components/ui/DotPattern"
+import ScrollReavel from "@/components/ui/ScrollReveal"
+
 export default function LandingPage() {
   return (
     <main>
       {/* Beranda */}
-      <section></section>
+      <section id="beranda" className="relative overflow-hidden py-5 pb-10">
+        <DotPattern />
+
+        <div className="relative z-10">
+          <Beranda />
+        </div>
+      </section>
 
       {/* Tentang Kami */}
-      <section></section>
+      <section id="tentang"></section>
 
       {/* Galeri */}
-      <section></section>
+      <section id="galeri"></section>
 
-      {/* hubungi Kami */}
-      <section></section>
+      {/* Hubungi Kami */}
+      <section id="hubungi"></section>
     </main>
   )
 }

@@ -29,12 +29,12 @@ const navLinks: NavLink[] = [
     options: [
       { href: "#tentang", label: "Tentang Karsa" },
       { href: "#visi-misi", label: "Visi & Misi" },
-      { href: "#kegiatan", label: "Kegiatan Kami" },
+      { href: "#program", label: "Program" },
       { href: "#dampak", label: "Dampak & Kontribusi" },
     ],
   },
   { href: "#galeri", label: "Galeri", color: "#b764ff" },
-  { href: "#hubungi", label: "Hubungi Kami", color: "#ecab1d" },
+  { href: "#kegiatan", label: "Kegiatan", color: "#ecab1d" },
 ]
 
 export function Navbar() {
@@ -111,6 +111,7 @@ export function Navbar() {
       "dampak",
       "galeri",
       "hubungi",
+      "program",
     ]
 
     const sections = sectionIds
@@ -149,7 +150,7 @@ export function Navbar() {
   const isJelajahiActive =
     activeLink === "#tentang" ||
     activeLink === "#visi-misi" ||
-    activeLink === "#kegiatan" ||
+    activeLink === "#program" ||
     activeLink === "#dampak"
 
   // Side Line

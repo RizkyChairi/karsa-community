@@ -1,4 +1,4 @@
-import { Navbar } from "@/components/Navbar"
+import { Navbar } from "@/components/landing/Navbar"
 
 export default function KarsaLayout({
   children,
@@ -9,7 +9,7 @@ export default function KarsaLayout({
     <>
 
       <Navbar />
-      <main className="pt-27 px-4 sm:px-10 ">
+      <main className="pt-30 px-4 sm:px-10 ">
         {children}
       </main>
     </>
