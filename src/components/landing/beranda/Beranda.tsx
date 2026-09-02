@@ -1,8 +1,9 @@
-import { ArrowUpRight, Images } from "lucide-react"
+import { ArrowUpRight, Images, UsersRound } from "lucide-react"
 import ScrollReavel from "@/components/ui/ScrollReveal"
+import Counter from "@/components/ui/Counter";
 
 export function Beranda() {
-  const layoutcard = "py-3 px-2 rounded-xl";
+  const layoutcard = "py-3 px-4 rounded-xl";
   return (
     <div className="relative overflow-hidden">
       <div className="relative z-5">
@@ -59,15 +60,19 @@ export function Beranda() {
             {/* Card 1 — Anggota */}
             <ScrollReavel delay={0.4} direction="up">
               <div className="card-1">
-                <div className={`item-1 bg-[#9BDB35] text-black ${layoutcard} h-32 flex flex-col justify-center relative overflow-hidden`}>
+                <div
+                  className={`item-1 bg-[#9BDB35] text-black ${layoutcard} h-32 flex flex-col justify-center relative overflow-hidden`}
+                >
                   <p className="text-sm font-bold uppercase tracking-wider opacity-70 mb-1">
-                    Total Anggota
+                    Telah Berkolaborasi
                   </p>
+
                   <h2 className="text-5xl font-black tracking-tighter">
-                    128<span className="text-3xl opacity-60">+</span>
+                    <Counter from={0} to={16} duration={2000} />
                   </h2>
+
                   <p className="text-xs font-medium opacity-80 mt-1">
-                    Terdaftar secara resmi
+                    Mitra & Partner
                   </p>
                 </div>
               </div>
@@ -100,10 +105,10 @@ export function Beranda() {
                       Program Kerja
                     </p>
                     <h2 className="text-7xl font-black tracking-tighter mb-4">
-                      18
+                      <Counter from={0} to={6} duration={2000}></Counter>
                     </h2>
                     <p className="text-sm font-medium text-white/90 leading-relaxed pr-2">
-                      Program kerja aktif yang dirancang khusus untuk mendukung perkembangan anggota dan organisasi secara berkelanjutan.
+                      Program kerja yang dirancang untuk mendorong kemajuan dan perkembangan organisasi.
                     </p>
                   </div>
                 </div>
@@ -139,12 +144,9 @@ export function Beranda() {
                     Anggota Aktif
                   </p>
                   <div className="flex items-center justify-between w-full">
-                    <h3 className="text-4xl font-black tracking-tight">96</h3>
+                    <h3 className="text-4xl font-black tracking-tight"><Counter from={70} to={97} duration={3000} suffix="+"></Counter></h3>
                     {/* Animasi titik hijau menyala */}
-                    <span className="relative flex h-3 w-3">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#9BDB35] opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-3 w-3 bg-[#9BDB35]"></span>
-                    </span>
+                    <UsersRound size={20} />
                   </div>
                 </div>
 
@@ -154,7 +156,7 @@ export function Beranda() {
                     Kegiatan Tahun Ini
                   </p>
                   <span className="text-2xl font-black text-black">
-                    14
+                    4
                   </span>
                 </div>
 
@@ -163,8 +165,8 @@ export function Beranda() {
                   <p className="text-sm font-medium text-gray-500">
                     Tahun Berdiri
                   </p>
-                  <span className="text-xl font-bold text-gray-400">
-                    2021
+                  <span className="text-xl font-bold">
+                    2023
                   </span>
                 </div>
 
