@@ -26,6 +26,9 @@ body {
   --color-karsa-blue: #5076ff;
   --color-karsa-purple: #b764ff;
   --color-karsa-yellow: #ecab1d;
-
   --color-karsa-black: #252525;
+}
+
+html {
+  scroll-behavior: smooth;
 }

@@ -4,6 +4,7 @@ import { Beranda } from "@/components/landing/beranda/Beranda"
 import DotPattern from "@/components/ui/DotPattern"
 import AboutKarsa from "@/components/landing/about/about-karsa/About"
 import ScrollReavel from "@/components/ui/ScrollReveal"
+import Visimisi from "@/components/landing/about/visimisi-karsa/Visimisi"
 
 export default function LandingPage() {
   return (
@@ -20,6 +21,11 @@ export default function LandingPage() {
       <section id="tentang" className="py-10 md:py-20">
         <div>
           <AboutKarsa />
+        </div>
+      </section>
+      <section id="visimisi" className="py-10 md:py-20">
+        <div>
+          <Visimisi />
         </div>
       </section>
 

@@ -33,8 +33,7 @@ export default function AboutKarsa() {
   ]
 
   return (
-    <section className="space-y-16">
-
+    <div className="space-y-16">
       <div className="mx-auto max-w-3xl text-center text-3xl font-semibold leading-tight tracking-tight md:text-4xl">
         <ScrollReveal direction="up" duration={0.8}>
           <h2>
@@ -192,6 +191,6 @@ export default function AboutKarsa() {
 
         </div>
       </div>
-    </section>
+    </div>
   )
 }
