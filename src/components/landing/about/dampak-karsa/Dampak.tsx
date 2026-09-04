@@ -123,6 +123,34 @@ export default function DampakKarsa() {
     : contributions.slice(0, 3)
 
   return (
-    <div></div>
+    <div className="space-y-16 sm:space-y-20 md:space-y-24">
+      <div className="mx-auto max-w-5xl">
+        <ScrollReveal direction="up" duration={0.7}>
+          <div className="grid gap-8 md:grid-cols-12 md:items-end">
+
+            <div className="md:col-span-7">
+              <p className="mb-3 text-[10px] font-medium uppercase tracking-[0.2em] text-karsa-green">
+                Dampak & Kontribusi
+              </p>
+
+              <h2 className="text-2xl font-semibold leading-tight tracking-tight text-karsa-black sm:text-3xl md:text-4xl">
+                Setiap langkah
+                <br />
+                meninggalkan jejak
+                <span className="text-karsa-green">.</span>
+              </h2>
+            </div>
+
+            <div className="md:col-span-5">
+              <p className="max-w-sm text-sm leading-relaxed text-gray-500">
+                Rekam jejak perjalanan Karsa melalui berbagai kegiatan,
+                tempat, dan kolaborasi yang telah dilakukan bersama.
+              </p>
+            </div>
+
+          </div>
+        </ScrollReveal>
+      </div>
+    </div>
   )
 }
