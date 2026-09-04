@@ -69,7 +69,7 @@ export default function Visimisi() {
             <div className="mt-8">
               <h3 className="max-w-xl text-2xl font-semibold leading-snug tracking-tight text-karsa-black md:text-[27px]">
                 Membangun generasi yang peduli dan aktif menciptakan
-                perubahan positif bagi lingkungan dan masyarakat.
+                perubahan positif bagi masyarakat.
               </h3>
             </div>
 
