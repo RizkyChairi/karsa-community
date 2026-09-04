@@ -11,14 +11,14 @@ export function Beranda() {
 
         <div className="heading-title flex flex-col items-center justify-center text-center font-semibold">
           <ScrollReavel delay={0.2} direction="up" duration={1}>
-            <div className="text-3xl leading-snug tracking-tight md:text-4xl">
+            <h1 className="text-3xl leading-snug tracking-tight md:text-4xl">
               Mengubah Kepedulian
-            </div>
+            </h1>
           </ScrollReavel>
           <ScrollReavel delay={0.4} direction="up">
-            <div className="text-2xl leading-normal tracking-tight md:text-3xl">
+            <h1 className="text-2xl leading-normal tracking-tight md:text-3xl">
               Menjadi Aksi Nyata untuk Lingkungan
-            </div>
+            </h1>
           </ScrollReavel>
         </div>
 
@@ -68,7 +68,7 @@ export function Beranda() {
                   </p>
 
                   <h2 className="text-5xl font-black tracking-tighter">
-                    <Counter from={0} to={16} duration={3400} />
+                    <Counter from={0} to={7} duration={3400} />
                   </h2>
 
                   <p className="text-xs font-medium opacity-80 mt-1">

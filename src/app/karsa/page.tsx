@@ -2,6 +2,7 @@
 
 import { Beranda } from "@/components/landing/beranda/Beranda"
 import DotPattern from "@/components/ui/DotPattern"
+import AboutKarsa from "@/components/landing/about/about-karsa/About"
 import ScrollReavel from "@/components/ui/ScrollReveal"
 
 export default function LandingPage() {
@@ -17,7 +18,11 @@ export default function LandingPage() {
       </section>
 
       {/* Tentang Kami */}
-      <section id="tentang"></section>
+      <section id="tentang" className="py-20">
+        <div>
+          <AboutKarsa />
+        </div>
+      </section>
 
       {/* Galeri */}
       <section id="galeri"></section>
