@@ -1,5 +1,7 @@
 import FloatingVideo from "@/components/landing/FloatingVideo"
 import { Navbar } from "@/components/landing/Navbar"
+import ScrollReveal from "@/components/ui/ScrollReveal"
+import ScrollReavel from "@/components/ui/ScrollReveal"
 
 export default function KarsaLayout({
   children,

@@ -68,7 +68,7 @@ export function Beranda() {
                   </p>
 
                   <h2 className="text-5xl font-black tracking-tighter">
-                    <Counter from={0} to={16} duration={2000} />
+                    <Counter from={0} to={16} duration={3400} />
                   </h2>
 
                   <p className="text-xs font-medium opacity-80 mt-1">
@@ -105,7 +105,7 @@ export function Beranda() {
                       Program Kerja
                     </p>
                     <h2 className="text-7xl font-black tracking-tighter mb-4">
-                      <Counter from={0} to={6} duration={2000}></Counter>
+                      <Counter from={0} to={6} duration={3000}></Counter>
                     </h2>
                     <p className="text-sm font-medium text-white/90 leading-relaxed pr-2">
                       Program kerja yang dirancang untuk mendorong kemajuan dan perkembangan organisasi.
@@ -144,7 +144,7 @@ export function Beranda() {
                     Anggota Aktif
                   </p>
                   <div className="flex items-center justify-between w-full">
-                    <h3 className="text-4xl font-black tracking-tight"><Counter from={70} to={97} duration={3000} suffix="+"></Counter></h3>
+                    <h3 className="text-4xl font-black tracking-tight"><Counter from={30} to={97} duration={3000} suffix="+"></Counter></h3>
                     {/* Animasi titik hijau menyala */}
                     <UsersRound size={20} />
                   </div>
@@ -172,7 +172,6 @@ export function Beranda() {
 
               </div>
             </ScrollReavel>
-
           </div>
         </div>
       </div>

@@ -191,7 +191,6 @@ export default function FloatingVideo() {
               "
             />
 
-
             <div className="
               absolute
               inset-0
