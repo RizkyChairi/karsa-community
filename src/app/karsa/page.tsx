@@ -4,7 +4,8 @@ import { Beranda } from "@/components/landing/beranda/Beranda"
 import DotPattern from "@/components/ui/DotPattern"
 import AboutKarsa from "@/components/landing/about/about-karsa/About"
 import VisiMisi from "@/components/landing/about/visimisi-karsa/Visimisi"
-// import ProgramKarsa from "@/components/landing/about/program-karsa/page"
+import ProgramKarsa from "@/components/landing/about/program/program"
+import DampakKarsa from "@/components/landing/about/dampak-karsa/Dampak"
 
 
 export default function LandingPage() {
@@ -31,10 +32,14 @@ export default function LandingPage() {
       </section>
       <section id="program" className="py-10 md:py-20">
         <div>
-          {/* <ProgramKarsa /> */}
+          <ProgramKarsa />
         </div>
       </section>
-
+      <section id="dampak" className="py-10 md:py-20">
+        <div>
+          <DampakKarsa />
+        </div>
+      </section>
       {/* Galeri */}
       <section id="galeri"></section>
 
