@@ -128,7 +128,100 @@ export default function Visimisi() {
           </div>
         </ScrollReveal>
 
+        <ScrollReveal direction="right" duration={0.8}>
+          <div className="py-10 lg:pl-12">
+            {/* HEADER */}
+            <div className="flex items-center gap-3">
+              <Route
+                size={18}
+                strokeWidth={1.7}
+                className="text-karsa-primary"
+              />
 
+              <span className="text-xl font-medium text-karsa-primary">
+                Misi
+              </span>
+            </div>
+
+            <div className="mt-8">
+              <h3 className="max-w-xl text-2xl font-semibold leading-snug tracking-tight text-karsa-black md:text-[27px]">
+                Mengubah kepedulian menjadi aksi nyata yang memberikan
+                manfaat bagi lingkungan dan masyarakat sekitar.
+              </h3>
+            </div>
+
+            <div className="mt-10 border-t border-gray-100 pt-6">
+              <div className="mb-5 flex items-center gap-3">
+                <span className="h-1.5 w-1.5 rounded-full bg-karsa-primary" />
+
+                <p className="text-sm font-medium text-karsa-black">
+                  Yang Kami Lakukan
+                </p>
+              </div>
+
+              <div>
+                {missions.map((item, index) => {
+                  const isOpen = openMission === index
+
+                  return (
+                    <div
+                      key={index}
+                      className="border-b border-gray-100"
+                    >
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setOpenMission(isOpen ? null : index)
+                        }
+                        className="flex w-full items-center gap-4 py-4 text-left"
+                      >
+                        <span
+                          className={`w-5 shrink-0 text-xs font-medium transition-colors duration-300 ${isOpen
+                            ? "text-karsa-primary"
+                            : "text-gray-300"
+                            }`}
+                        >
+                          0{index + 1}
+                        </span>
+
+                        <span
+                          className={`flex-1 text-[15px] font-medium transition-colors duration-300 ${isOpen
+                            ? "text-karsa-primary"
+                            : "text-karsa-black"
+                            }`}
+                        >
+                          {item.title}
+                        </span>
+
+                        <ChevronDown
+                          size={17}
+                          strokeWidth={1.7}
+                          className={`shrink-0 text-gray-400 transition-transform duration-300 ${isOpen
+                            ? "rotate-180 text-karsa-primary"
+                            : ""
+                            }`}
+                        />
+                      </button>
+
+                      <div
+                        className={`grid transition-all duration-300 ${isOpen
+                          ? "grid-rows-[1fr] opacity-100"
+                          : "grid-rows-[0fr] opacity-0"
+                          }`}
+                      >
+                        <div className="overflow-hidden">
+                          <p className="pb-5 pl-9 pr-6 text-sm leading-relaxed text-gray-400">
+                            {item.description}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+          </div>
+        </ScrollReveal>
       </div>
     </div>
   )
