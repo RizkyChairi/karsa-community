@@ -31,7 +31,7 @@ const navLinks: NavLink[] = [
     hasDropdown: true,
     options: [
       { href: "#tentang", label: "Tentang Karsa" },
-      { href: "#visi-misi", label: "Visi & Misi" },
+      { href: "#visimisi", label: "Visi & Misi" },
       { href: "#program", label: "Program" },
       { href: "#dampak", label: "Dampak & Kontribusi" },
     ],
