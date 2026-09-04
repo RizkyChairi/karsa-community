@@ -22,12 +22,19 @@ body {
 }
 
 @theme {
+  /* PRIMARY */
+  --color-karsa-primary: #025246;
+
+  /* SECONDARY */
   --color-karsa-green: #9bdb35;
   --color-karsa-blue: #5076ff;
   --color-karsa-purple: #b764ff;
   --color-karsa-yellow: #ecab1d;
+
+  /* TEXT */
   --color-karsa-black: #252525;
 }
+Visim
 
 html {
   scroll-behavior: smooth;

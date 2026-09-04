@@ -1,6 +1,6 @@
 "use client"
 
-import { Eye, Target, ChevronDown } from "lucide-react"
+import { Binoculars, Route, ChevronDown } from "lucide-react"
 import ScrollReveal from "@/components/ui/ScrollReveal"
 import { useState } from "react"
 
@@ -35,4 +35,21 @@ export default function Visimisi() {
     },
   ]
 
+  return (
+    <div className="space-y-16">
+
+      <div className="mx-auto max-w-3xl text-center text-3xl font-semibold leading-tight tracking-tight md:text-4xl">
+        <ScrollReveal direction="up" duration={0.8}>
+          <h2>Peduli untuk</h2>
+
+          <h2>
+            Bergerak dan Berdampak{" "}
+            <span className="text-karsa-yellow">.</span>
+          </h2>
+        </ScrollReveal>
+      </div>
+
+
+    </div>
+  )
 }
