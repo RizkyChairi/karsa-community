@@ -1,13 +1,17 @@
 import Image from "next/image"
 import ScrollReveal from "@/components/ui/ScrollReveal"
+import { useState } from "react"
 import {
   Leaf,
   Users,
   HandHeart,
   Sparkles,
+  ChevronDown
 } from "lucide-react"
+import { div, span } from "framer-motion/client"
 
 export default function AboutKarsa() {
+  const [isOpen, setIsOpen] = useState(false)
   const textDecoration = [
     {
       text: "Peduli Lingkungan",
@@ -77,12 +81,14 @@ export default function AboutKarsa() {
       </div>
 
       {/* ABOUT CONTENT */}
+      {/* ABOUT CONTENT */}
       <div className="flex flex-col justify-between gap-12 lg:flex-row lg:items-center lg:gap-20">
-        {/* LEFT - LOGO */}
-        <div className=" flex w-full justify-center lg:w-auto lg:justify-start">
+
+        {/* LEFT - IMAGE */}
+        <div className="flex w-full justify-center lg:w-auto lg:justify-start">
           <ScrollReveal direction="left" duration={0.8}>
             <Image
-              src="/images/document-tentang.webp"
+              src="/images/about/document-tentang.webp"
               alt="Karsa"
               width={500}
               height={500}
@@ -91,7 +97,7 @@ export default function AboutKarsa() {
           </ScrollReveal>
           <ScrollReveal direction="left" duration={0.8}>
             <Image
-              src="/images/document-tentang.webp"
+              src="/images/about/document-tentang.webp"
               alt="Karsa"
               width={500}
               height={500}
@@ -103,39 +109,67 @@ export default function AboutKarsa() {
         {/* RIGHT - TEXT */}
         <div className="w-full max-w-2xl space-y-6">
 
+          {/* PARAGRAF UTAMA */}
           <ScrollReveal direction="right" duration={0.8}>
             <p className="text-lg leading-relaxed text-gray-600 md:text-[19px]">
               Di sekitar kita, masih banyak persoalan sosial dan lingkungan yang
               membutuhkan perhatian. Mulai dari lingkungan yang kurang terawat,
               permasalahan sampah, hingga masyarakat yang membutuhkan dukungan.
-              Di sisi lain, banyak generasi muda yang ingin berkontribusi, tetapi
-              belum menemukan ruang dan kesempatan untuk mulai bergerak.
+              Banyak generasi muda ingin berkontribusi, tetapi belum menemukan
+              ruang untuk mulai bergerak. {!isOpen && (
+                <span>Disinilah peran <span className="font-semibold text-karsa-black">Karsa.</span></span>
+              )}
             </p>
           </ScrollReveal>
 
-          <ScrollReveal direction="right" duration={0.9}>
-            <p className="text-[17px] leading-relaxed text-gray-500 md:text-[18px]">
-              <strong className="font-semibold text-karsa-black">
-                Karsa
-              </strong>{" "}
-              hadir sebagai ruang untuk mengubah kepedulian menjadi aksi nyata.
-              Melalui berbagai kegiatan seperti{" "}
-              <span className="font-medium text-[#025246]">
-                menanam pohon, membersihkan lingkungan, membantu masyarakat,
-                hingga berbagi ilmu
-              </span>
-              , kami mengajak generasi muda untuk mengambil peran dan bergerak
-              bersama dalam memberikan manfaat bagi sekitar.
-            </p>
-          </ScrollReveal>
+          {/* DROPDOWN CONTENT */}
+          {isOpen && (
+            <div className="space-y-6">
 
-          <ScrollReveal direction="right" duration={1}>
-            <p className="text-[17px] leading-relaxed text-gray-500 md:text-[18px]">
-              Bagi Karsa, perubahan dapat dimulai dari langkah sederhana.
-              Dengan bergerak bersama, belajar, dan berkolaborasi, kami percaya
-              setiap langkah dapat menciptakan dampak yang berarti.
-            </p>
-          </ScrollReveal>
+              <ScrollReveal direction="right" duration={0.8}>
+                <p className="text-[17px] leading-relaxed text-gray-500 md:text-[18px]">
+                  <strong className="font-semibold text-karsa-black">
+                    Karsa
+                  </strong>{" "}
+                  hadir untuk mengubah kepedulian menjadi aksi nyata. Melalui
+                  kegiatan seperti{" "}
+                  <span className="font-medium text-[#025246]">
+                    menanam pohon, membersihkan lingkungan, membantu masyarakat,
+                    hingga berbagi ilmu
+                  </span>
+                  , kami mengajak generasi muda untuk bergerak dan memberikan
+                  manfaat bagi sekitar.
+                </p>
+              </ScrollReveal>
+
+              <ScrollReveal direction="right" duration={0.9}>
+                <p className="text-[17px] leading-relaxed text-gray-500 md:text-[18px]">
+                  Bagi Karsa, perubahan dimulai dari langkah sederhana. Dengan
+                  bergerak dan berkolaborasi bersama, setiap langkah dapat
+                  menciptakan dampak yang berarti.
+                </p>
+              </ScrollReveal>
+
+            </div>
+          )}
+
+          <button
+            type="button"
+            onClick={() => setIsOpen(!isOpen)}
+            className="group inline-flex items-center gap-2 text-sm font-medium text-karsa-black"
+          >
+            <span className="underline underline-offset-4">
+              {isOpen ? "Sembunyikan" : "Kenali Karsa lebih lanjut"}
+            </span>
+
+            <ChevronDown
+              size={17}
+              strokeWidth={1.8}
+              className={`transition-transform duration-300 ${isOpen ? "rotate-180" : ""
+                }`}
+            />
+          </button>
+
         </div>
       </div>
     </section>
