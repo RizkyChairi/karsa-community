@@ -6,9 +6,10 @@ import {
   Users,
   HandHeart,
   Sparkles,
-  ChevronDown
+  ChevronDown,
+  Camera,
+  UsersRound
 } from "lucide-react"
-import { div, span } from "framer-motion/client"
 
 export default function AboutKarsa() {
   const [isOpen, setIsOpen] = useState(false)
@@ -34,7 +35,6 @@ export default function AboutKarsa() {
   return (
     <section className="space-y-16">
 
-      {/* HEADING */}
       <div className="mx-auto max-w-3xl text-center text-3xl font-semibold leading-tight tracking-tight md:text-4xl">
         <ScrollReveal direction="up" duration={0.8}>
           <h2>
@@ -57,15 +57,7 @@ export default function AboutKarsa() {
           return (
             <div
               key={item.text}
-              className="
-          flex items-center justify-center gap-2
-          text-base font-medium
-          text-gray-600
-          transition-colors
-          duration-300
-          hover:text-karsa-black
-        "
-            >
+              className=" flex items-center justify-center gap-2 text-base font-medium text-gray-600 transition-colors duration-300 hover:text-karsa-black">
               <Icon
                 size={17}
                 strokeWidth={1.7}
@@ -79,39 +71,68 @@ export default function AboutKarsa() {
           )
         })}
       </div>
-
-      {/* ABOUT CONTENT */}
-      {/* ABOUT CONTENT */}
       <div className="flex flex-col justify-between gap-12 lg:flex-row lg:items-center lg:gap-20">
+        <div className="flex w-full items-start justify-center gap-4 lg:w-auto lg:justify-start lg:gap-6">
 
-        {/* LEFT - IMAGE */}
-        <div className="flex w-full justify-center lg:w-auto lg:justify-start">
+
           <ScrollReveal direction="left" duration={0.8}>
-            <Image
-              src="/images/about/document-tentang.webp"
-              alt="Karsa"
-              width={500}
-              height={500}
-              className="h-auto w-60 object-contain md:w-56 lg:w-70"
-            />
+            <div className="flex flex-col items-center mt-6">
+              <Image
+                src="/images/about/document-tentang-1.webp"
+                alt="Kegiatan Karsa"
+                width={500}
+                height={500}
+                className=" h-auto w-44 rounded-2xl object-cover transition-transform duration-500 hover:-translate-y-2 sm:w-48 md:w-52 lg:w-60" />
+
+              <div className="mt-3 flex items-center gap-2">
+                <Camera
+                  size={15}
+                  strokeWidth={1.8}
+                  className="text-[#025246]"
+                />
+
+                <span className="text-sm font-medium text-karsa-black">
+                  Kegiatan
+                </span>
+              </div>
+
+              <span className="mt-1 text-xs text-gray-400">
+                Dokumentasi Karsa
+              </span>
+            </div>
           </ScrollReveal>
-          <ScrollReveal direction="left" duration={0.8}>
-            <Image
-              src="/images/about/document-tentang.webp"
-              alt="Karsa"
-              width={500}
-              height={500}
-              className="h-auto w-60 object-contain md:w-56 lg:w-70"
-            />
+
+          <ScrollReveal direction="left" duration={0.9}>
+            <div className="flex flex-col items-center">
+              <Image
+                src="/images/about/document-tentang-2.webp"
+                alt="Bersama komunitas"
+                width={500}
+                height={500}
+                className=" h-auto w-40 rounded-2xl object-cover transition-transform duration-500 hover:-translate-y-2 sm:w-44 md:w-48 lg:w-56" />
+              <div className="mt-3 flex items-center gap-2">
+                <UsersRound
+                  size={15}
+                  strokeWidth={1.8}
+                  className="text-[#025246]"
+                />
+
+                <span className="text-sm font-medium text-karsa-black">
+                  Komunitas
+                </span>
+              </div>
+
+              <span className="mt-1 text-xs text-gray-400">
+                Bergerak bersama
+              </span>
+            </div>
           </ScrollReveal>
+
         </div>
 
-        {/* RIGHT - TEXT */}
         <div className="w-full max-w-2xl space-y-6">
-
-          {/* PARAGRAF UTAMA */}
           <ScrollReveal direction="right" duration={0.8}>
-            <p className="text-lg leading-relaxed text-gray-600 md:text-[19px]">
+            <p className="text-lg leading-relaxed text-gray-600 md:text-[17px]">
               Di sekitar kita, masih banyak persoalan sosial dan lingkungan yang
               membutuhkan perhatian. Mulai dari lingkungan yang kurang terawat,
               permasalahan sampah, hingga masyarakat yang membutuhkan dukungan.
@@ -122,7 +143,6 @@ export default function AboutKarsa() {
             </p>
           </ScrollReveal>
 
-          {/* DROPDOWN CONTENT */}
           {isOpen && (
             <div className="space-y-6">
 
