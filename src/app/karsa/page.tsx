@@ -11,14 +11,13 @@ export default function LandingPage() {
       {/* Beranda */}
       <section id="beranda" className="relative overflow-hidden py-5 pb-10">
         <DotPattern />
-
         <div className="relative z-10">
           <Beranda />
         </div>
       </section>
 
       {/* Tentang Kami */}
-      <section id="tentang" className="py-20">
+      <section id="tentang" className="py-10 md:py-20">
         <div>
           <AboutKarsa />
         </div>
