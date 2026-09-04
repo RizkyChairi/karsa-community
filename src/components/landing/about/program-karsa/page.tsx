@@ -45,4 +45,27 @@ export default function ProgramKarsa() {
     },
   ]
 
+  return (
+    <div className="space-y-14 md:space-y-16">
+      <div className="mx-auto max-w-3xl text-center">
+        <ScrollReveal direction="up" duration={0.8}>
+
+          <h2 className="mt-6 text-3xl font-semibold leading-tight tracking-tight md:text-4xl">
+            Mengubah Kepedulian
+          </h2>
+
+          <h2 className="text-3xl font-semibold leading-tight tracking-tight md:text-4xl">
+            Menjadi Aksi<span className="text-karsa-green">.</span>
+          </h2>
+        </ScrollReveal>
+
+        <ScrollReveal direction="up" duration={0.8} delay={0.15}>
+          <p className="mx-auto mt-6 max-w-xl text-[15px] leading-relaxed text-gray-500 md:text-base">
+            Program Karsa menjadi ruang untuk mengubah kepedulian terhadap
+            lingkungan dan sesama menjadi langkah nyata yang memberikan manfaat.
+          </p>
+        </ScrollReveal>
+      </div>
+    </div>
+  )
 }
