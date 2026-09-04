@@ -1,195 +1,193 @@
+"use client"
+
 import Image from "next/image"
 import ScrollReveal from "@/components/ui/ScrollReveal"
-import { useState } from "react"
-import {
-  Leaf,
-  Users,
-  HandHeart,
-  Sparkles,
-  ChevronDown,
-  Camera,
-  UsersRound
-} from "lucide-react"
+import { Camera, UsersRound } from "lucide-react"
+
+const values = [
+  {
+    number: "01",
+    title: "Peduli",
+    description: "Peka terhadap lingkungan dan sesama.",
+    bg: "bg-[#9BDB35]",
+    dark: false,
+  },
+  {
+    number: "02",
+    title: "Kolaborasi",
+    description: "Bergerak bersama untuk tujuan yang berarti.",
+    bg: "bg-[#5076FF]",
+    dark: true,
+  },
+  {
+    number: "03",
+    title: "Berbagi",
+    description: "Memberikan manfaat melalui aksi nyata.",
+    bg: "bg-[#B764FF]",
+    dark: true,
+  },
+  {
+    number: "04",
+    title: "Dampak",
+    description: "Menciptakan perubahan yang berkelanjutan.",
+    bg: "bg-[#ECAB1D]",
+    dark: false,
+  },
+]
 
 export default function AboutKarsa() {
-  const [isOpen, setIsOpen] = useState(false)
-  const textDecoration = [
-    {
-      text: "Peduli Lingkungan",
-      icon: Leaf,
-    },
-    {
-      text: "Bersama Komunitas",
-      icon: Users,
-    },
-    {
-      text: "Berbagi dan Membantu",
-      icon: HandHeart,
-    },
-    {
-      text: "Dampak Nyata",
-      icon: Sparkles,
-    },
-  ]
-
   return (
-    <div className="space-y-16">
-      <div className="mx-auto max-w-3xl text-center text-3xl font-semibold leading-tight tracking-tight md:text-4xl">
-        <ScrollReveal direction="up" duration={0.8}>
-          <h2>
-            Bersama Ciptakan{" "}
-            <span className="text-karsa-purple">.</span>
+    <div className="mx-auto max-w-6xl space-y-16 md:space-y-20">
+      {/* Heading */}
+      <div className="heading-title flex flex-col items-center justify-center text-center font-semibold">
+        <ScrollReveal delay={0.15} direction="up" duration={0.8}>
+          <h2 className="text-3xl leading-snug tracking-tight md:text-4xl">
+            Bersama Ciptakan
           </h2>
+        </ScrollReveal>
 
-          <h2>
-            Perubahan yang Berarti{" "}
-            <span className="text-karsa-blue">.</span>
+        <ScrollReveal delay={0.3} direction="up" duration={0.8}>
+          <h2 className="text-2xl leading-normal tracking-tight md:text-3xl">
+            Perubahan yang Berarti
+            <span className="text-karsa-green">.</span>
           </h2>
+        </ScrollReveal>
+
+        <ScrollReveal delay={0.45} direction="up" duration={0.8}>
+          <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-gray-500 md:text-base">
+            Sebuah komunitas anak muda yang fokus pada lingkungan, sosial,
+            dan kolaborasi bersama.
+          </p>
         </ScrollReveal>
       </div>
 
-      {/* TEXT DECORATION */}
-      <div className="grid grid-cols-2 gap-x-4 gap-y-6 py-2 text-center text-base font-medium md:grid-cols-4 md:gap-8">
-        {textDecoration.map((item) => {
-          const Icon = item.icon
+      {/* Tentang Karsa */}
+      <div className="grid items-center gap-12 md:gap-14 lg:grid-cols-12 lg:gap-8">
+        {/* Images */}
+        <ScrollReveal direction="left" duration={0.8} className="lg:col-span-5">
+          <div className="flex items-start gap-3 sm:gap-4 md:gap-5">
+            <div className="w-[58%]">
+              <div className="group relative aspect-[4/5] overflow-hidden rounded-2xl">
+                <Image
+                  src="/images/about/document-tentang-1.webp"
+                  alt="Aktivitas lingkungan Karsa bersama komunitas"
+                  fill
+                  sizes="(min-width: 1024px) 30vw, 55vw"
+                  className="object-cover transition-transform duration-300 group-hover:scale-[1.04]"
+                />
+              </div>
 
-          return (
-            <div
-              key={item.text}
-              className=" flex items-center justify-center gap-2 text-base font-medium text-gray-600 transition-colors duration-300 hover:text-karsa-black">
-              <Icon
-                size={17}
-                strokeWidth={1.7}
-                className="text-[#025246]"
-              />
-
-              <span className="underline decoration-dotted decoration-[#999898] underline-offset-4">
-                {item.text}
-              </span>
-            </div>
-          )
-        })}
-      </div>
-      <div className="flex flex-col justify-between gap-12 lg:flex-row lg:items-center lg:gap-20">
-        <div className="flex w-full items-start justify-center gap-4 lg:w-auto lg:justify-start lg:gap-6">
-
-
-          <ScrollReveal direction="left" duration={0.8}>
-            <div className="flex flex-col items-center mt-6">
-              <Image
-                src="/images/about/document-tentang-1.webp"
-                alt="Kegiatan Karsa"
-                width={500}
-                height={500}
-                className=" h-auto w-44 rounded-2xl object-cover transition-transform duration-500 hover:-translate-y-2 sm:w-48 md:w-52 lg:w-60" />
-
-              <div className="mt-3 flex items-center gap-2">
+              <div className="mt-3 flex items-center gap-1.5">
                 <Camera
-                  size={15}
+                  size={14}
                   strokeWidth={1.8}
-                  className="text-[#025246]"
+                  className="shrink-0 text-karsa-primary"
                 />
 
-                <span className="text-sm font-medium text-karsa-black">
+                <p className="text-sm font-semibold text-karsa-black">
                   Kegiatan
-                </span>
+                </p>
               </div>
 
-              <span className="mt-1 text-xs text-gray-400">
+              <p className="mt-0.5 pl-6 text-xs text-gray-400">
                 Dokumentasi Karsa
-              </span>
+              </p>
             </div>
-          </ScrollReveal>
 
-          <ScrollReveal direction="left" duration={0.9}>
-            <div className="flex flex-col items-center">
-              <Image
-                src="/images/about/document-tentang-2.webp"
-                alt="Bersama komunitas"
-                width={500}
-                height={500}
-                className=" h-auto w-40 rounded-2xl object-cover transition-transform duration-500 hover:-translate-y-2 sm:w-44 md:w-48 lg:w-56" />
-              <div className="mt-3 flex items-center gap-2">
+            <div className="w-[42%] pt-8 sm:pt-12 lg:pt-14">
+              <div className="group relative aspect-[3/4] overflow-hidden rounded-2xl">
+                <Image
+                  src="/images/about/document-tentang-2.webp"
+                  alt="Kegiatan bersama komunitas Karsa"
+                  fill
+                  sizes="(min-width: 1024px) 20vw, 40vw"
+                  className="object-cover transition-transform duration-300 group-hover:scale-[1.04]"
+                />
+              </div>
+
+              <div className="mt-3 flex items-center gap-1.5">
                 <UsersRound
-                  size={15}
+                  size={14}
                   strokeWidth={1.8}
-                  className="text-[#025246]"
+                  className="shrink-0 text-karsa-primary"
                 />
 
-                <span className="text-sm font-medium text-karsa-black">
+                <p className="text-sm font-semibold text-karsa-black">
                   Komunitas
-                </span>
+                </p>
               </div>
 
-              <span className="mt-1 text-xs text-gray-400">
+              <p className="mt-0.5 pl-6 text-xs text-gray-400">
                 Bergerak bersama
-              </span>
+              </p>
             </div>
-          </ScrollReveal>
+          </div>
+        </ScrollReveal>
 
-        </div>
-
-        <div className="w-full max-w-2xl space-y-6">
+        {/* Content */}
+        <div className="lg:col-span-7">
           <ScrollReveal direction="right" duration={0.8}>
-            <p className="text-lg leading-relaxed text-gray-600 md:text-[17px]">
-              Di sekitar kita, masih banyak persoalan sosial dan lingkungan yang
-              membutuhkan perhatian. Mulai dari lingkungan yang kurang terawat,
-              permasalahan sampah, hingga masyarakat yang membutuhkan dukungan.
-              Banyak generasi muda ingin berkontribusi, tetapi belum menemukan
-              ruang untuk mulai bergerak. {!isOpen && (
-                <span>Disinilah peran <span className="font-semibold text-karsa-black">Karsa.</span></span>
-              )}
+            <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-karsa-primary">
+              Tentang Karsa
+            </p>
+
+            <p className="mt-4 max-w-xl text-lg font-semibold leading-snug tracking-tight text-karsa-black md:text-xl">
+              Karsa hadir sebagai ruang bagi generasi muda untuk bergerak
+              bersama dalam menjawab persoalan sosial dan lingkungan di
+              sekitar kita.
+            </p>
+
+            <p className="mt-4 max-w-lg text-[15px] leading-relaxed text-gray-500 md:text-base">
+              Karsa mengajak generasi muda untuk belajar, berkontribusi,
+              berbagi, dan menciptakan perubahan melalui berbagai kegiatan
+              sosial dan lingkungan.
             </p>
           </ScrollReveal>
-
-          {isOpen && (
-            <div className="space-y-6">
-
-              <ScrollReveal direction="right" duration={0.8}>
-                <p className="text-[17px] leading-relaxed text-gray-500 md:text-[18px]">
-                  <strong className="font-semibold text-karsa-black">
-                    Karsa
-                  </strong>{" "}
-                  hadir untuk mengubah kepedulian menjadi aksi nyata. Melalui
-                  kegiatan seperti{" "}
-                  <span className="font-medium text-[#025246]">
-                    menanam pohon, membersihkan lingkungan, membantu masyarakat,
-                    hingga berbagi ilmu
-                  </span>
-                  , kami mengajak generasi muda untuk bergerak dan memberikan
-                  manfaat bagi sekitar.
-                </p>
-              </ScrollReveal>
-
-              <ScrollReveal direction="right" duration={0.9}>
-                <p className="text-[17px] leading-relaxed text-gray-500 md:text-[18px]">
-                  Bagi Karsa, perubahan dimulai dari langkah sederhana. Dengan
-                  bergerak dan berkolaborasi bersama, setiap langkah dapat
-                  menciptakan dampak yang berarti.
-                </p>
-              </ScrollReveal>
-
-            </div>
-          )}
-
-          <button
-            type="button"
-            onClick={() => setIsOpen(!isOpen)}
-            className="group inline-flex items-center gap-2 text-sm font-medium text-karsa-black"
-          >
-            <span className="underline underline-offset-4">
-              {isOpen ? "Sembunyikan" : "Kenali Karsa lebih lanjut"}
-            </span>
-
-            <ChevronDown
-              size={17}
-              strokeWidth={1.8}
-              className={`transition-transform duration-300 ${isOpen ? "rotate-180" : ""
-                }`}
-            />
-          </button>
-
         </div>
+      </div>
+
+      {/* Nilai Karsa */}
+      <div className="grid grid-cols-2 gap-3 md:gap-4 lg:grid-cols-4">
+        {values.map((item, index) => (
+          <ScrollReveal
+            key={item.number}
+            direction="up"
+            duration={0.7}
+            delay={0.1 + index * 0.08}
+            className="h-full"
+          >
+            <div
+              className={`group flex h-full flex-col justify-between rounded-xl p-4 transition-transform duration-300 hover:-translate-y-1 sm:p-5 ${item.bg}`}
+            >
+              <span
+                className={`text-3xl font-black tracking-tighter transition-colors duration-300 sm:text-4xl lg:text-5xl ${item.dark
+                  ? "text-white"
+                  : "text-black group-hover:text-karsa-primary"
+                  }`}
+              >
+                {item.number}
+              </span>
+
+              <div className="mt-6 sm:mt-8">
+                <h3
+                  className={`text-base font-bold transition-colors duration-300 sm:text-lg ${item.dark
+                    ? "text-white"
+                    : "text-black group-hover:text-karsa-primary"
+                    }`}
+                >
+                  {item.title}
+                </h3>
+
+                <p
+                  className={`mt-1 text-xs leading-relaxed sm:text-sm ${item.dark ? "text-white/90" : "text-black/70"
+                    }`}
+                >
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          </ScrollReveal>
+        ))}
       </div>
     </div>
   )
