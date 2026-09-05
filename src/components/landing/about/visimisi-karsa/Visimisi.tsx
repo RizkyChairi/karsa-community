@@ -38,14 +38,21 @@ export default function Visimisi() {
     <div className="space-y-12 sm:space-y-14 lg:space-y-16">
 
       {/* HEADING */}
-      <div className="mx-auto max-w-3xl text-center text-2xl font-semibold leading-tight tracking-tight sm:text-3xl md:text-4xl">
+      <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-2 md:items-end md:gap-16">
         <ScrollReveal direction="up" duration={0.8}>
-          <h2>Peduli untuk</h2>
+          <div className="text-2xl font-semibold leading-tight tracking-tight sm:text-3xl md:text-4xl">
+            <h2>Peduli untuk</h2>
 
-          <h2>
-            Bergerak dan Berdampak{" "}
-            <span className="text-karsa-yellow">.</span>
-          </h2>
+            <h2>
+              Bergerak dan Berdampak
+              <span className="text-karsa-yellow">.</span>
+            </h2>
+          </div>
+        </ScrollReveal>
+        <ScrollReveal direction="up" duration={0.8} delay={0.15}>
+          <p className="max-w-sm text-sm leading-relaxed text-gray-500">
+            Karsa mengubah kepedulian menjadi aksi nyata bagi lingkungan dan masyarakat.
+          </p>
         </ScrollReveal>
       </div>
 

@@ -127,7 +127,6 @@ export default function DampakKarsa() {
       <div className="mx-auto max-w-5xl">
         <ScrollReveal direction="up" duration={0.7}>
           <div className="grid gap-8 md:grid-cols-12 md:items-end">
-
             <div className="md:col-span-7">
               <p className="mb-3 text-[10px] font-medium uppercase tracking-[0.2em] text-karsa-green">
                 Dampak & Kontribusi
@@ -140,7 +139,6 @@ export default function DampakKarsa() {
                 <span className="text-karsa-green">.</span>
               </h2>
             </div>
-
             <div className="md:col-span-5">
               <p className="max-w-sm text-sm leading-relaxed text-gray-500">
                 Rekam jejak perjalanan Karsa melalui berbagai kegiatan,
@@ -318,32 +316,6 @@ export default function DampakKarsa() {
           </div>
         )}
       </div>
-      <ScrollReveal direction="up" duration={0.7}>
-        <div className="mx-auto flex max-w-5xl flex-col gap-5 border-t border-karsa-black/10 pt-8 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="text-lg font-semibold tracking-tight text-karsa-black">
-              Perjalanan ini masih terus berjalan.
-            </p>
-            <p className="mt-1 max-w-md text-sm leading-relaxed text-gray-500">
-              Setiap kegiatan menjadi bagian dari cerita dan kontribusi Karsa
-              untuk terus bergerak bersama.
-            </p>
-          </div>
-          <a
-            href="/kegiatan"
-            className="group inline-flex w-fit items-center gap-2 text-sm font-medium text-karsa-black"
-          >
-            <span className="border-b border-karsa-black pb-1">
-              Lihat seluruh rekam jejak
-            </span>
-            <ArrowUpRight
-              size={17}
-              strokeWidth={1.7}
-              className="transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-            />
-          </a>
-        </div>
-      </ScrollReveal>
     </div>
   )
 }
