@@ -40,6 +40,63 @@ export default function GallerySection() {
           </ScrollReveal>
         </div>
 
+        {/* Gallery Grid */}
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {visibleGalleries.map((gallery, index) => (
+            <ScrollReveal
+              key={gallery.id}
+              direction="up"
+              duration={0.7}
+              delay={index * 0.08}
+            >
+              <Link
+                href={`/galeri/${gallery.slug}`}
+                className="group block"
+              >
+                <article className="overflow-hidden rounded-2xl bg-neutral-100">
+
+                  {/* Image */}
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <Image
+                      src={gallery.image}
+                      alt={gallery.title}
+                      fill
+                      sizes="(max-width: 640px) 100vw, 50vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                    />
+
+                    {/* Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+
+                    {/* Content */}
+                    <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
+                      <div className="mb-2 flex items-center gap-2 text-xs font-medium text-white/70">
+                        <span>{gallery.category}</span>
+                        <span>•</span>
+                        <span>{gallery.location}</span>
+                      </div>
+
+                      <div className="flex items-end justify-between gap-4">
+                        <h3 className="max-w-[85%] text-xl font-semibold leading-tight tracking-tight text-white sm:text-2xl">
+                          {gallery.title}
+                        </h3>
+
+                        <ArrowUpRight
+                          size={20}
+                          strokeWidth={1.7}
+                          className="shrink-0 text-white transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                        />
+                      </div>
+                    </div>
+
+                  </div>
+                </article>
+              </Link>
+            </ScrollReveal>
+          ))}
+        </div>
+
+
       </div>
     </section>
   )
