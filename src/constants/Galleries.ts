@@ -1,456 +1,463 @@
-export const galleries = [
-  {
-    id: "aksi-bersih-depok",
-    slug: "aksi-bersih-depok",
+export type Gallery = {
+  id: string
+  slug: string
 
-    title: "Aksi Bersih Lingkungan",
+  title: string
+  shortDescription: string
+  description: string
+
+  category: string
+  location: string
+  date: string
+  time: string
+
+  image: string
+  images: string[]
+
+  participants: string
+  organizer: string
+  partners: string[]
+
+  impact: string
+  activities: string[]
+  tags: string[]
+
+  status: string
+  featured: boolean
+}
+
+export const galleries: Gallery[] = [
+  {
+    id: "kelas-lingkungan",
+    slug: "kelas-lingkungan",
+
+    title: "Kelas Peduli Lingkungan",
     shortDescription:
-      "Gerakan bersama untuk menjaga kebersihan lingkungan dan ruang publik.",
+      "Belajar memahami masalah lingkungan melalui diskusi dan aktivitas sederhana.",
     description:
-      "Aksi Bersih Lingkungan merupakan kegiatan kolaboratif yang mengajak masyarakat dan relawan untuk menjaga kebersihan ruang publik. Kegiatan dilakukan melalui pemilahan sampah, pembersihan area sekitar, serta edukasi sederhana mengenai pentingnya menjaga lingkungan.",
+      "Kelas Peduli Lingkungan menjadi ruang belajar bagi peserta untuk memahami berbagai persoalan lingkungan di sekitar mereka. Kegiatan dikemas melalui diskusi ringan, studi kasus, dan aktivitas kelompok yang mendorong peserta menemukan solusi sederhana yang dapat diterapkan sehari-hari.",
 
     category: "Lingkungan",
     location: "Depok",
-    date: "12 Januari 2026",
-    time: "07.00 - 10.30 WIB",
+    date: "15 Agustus 2026",
+    time: "09.00 - 12.00 WIB",
 
     image:
-      "https://images.pexels.com/photos/37595624/pexels-photo-37595624.jpeg",
+      "https://images.pexels.com/photos/3184436/pexels-photo-3184436.jpeg",
 
     images: [
-      "https://images.pexels.com/photos/37595624/pexels-photo-37595624.jpeg",
-      "https://images.pexels.com/photos/36713461/pexels-photo-36713461.jpeg",
-      "https://images.pexels.com/photos/9543412/pexels-photo-9543412.jpeg",
-    ],
-
-    participants: "40+",
-    organizer: "Karsa",
-    partners: ["Komunitas Lokal", "Relawan Lingkungan"],
-
-    impact:
-      "Mendorong kepedulian masyarakat terhadap kebersihan lingkungan dan meningkatkan partisipasi warga dalam menjaga ruang publik.",
-
-    activities: [
-      "Pembersihan area lingkungan",
-      "Pemilahan sampah",
-      "Edukasi pengelolaan sampah",
-      "Dokumentasi kegiatan",
-    ],
-
-    tags: ["Lingkungan", "Volunteer", "Cleanup", "Komunitas"],
-
-    status: "Selesai",
-    featured: true,
-  },
-
-  {
-    id: "penanaman-pohon-bogor",
-    slug: "penanaman-pohon-bogor",
-
-    title: "Penanaman Pohon Bersama",
-    shortDescription:
-      "Menanam dan merawat pohon sebagai langkah sederhana menjaga lingkungan.",
-    description:
-      "Kegiatan penanaman pohon menjadi salah satu bentuk aksi nyata untuk meningkatkan kesadaran terhadap pentingnya ruang hijau. Peserta bersama-sama melakukan penanaman, memberikan edukasi mengenai perawatan tanaman, serta membangun komitmen untuk menjaga lingkungan.",
-
-    category: "Lingkungan",
-    location: "Bogor",
-    date: "22 Februari 2026",
-    time: "08.00 - 11.00 WIB",
-
-    image:
-      "https://images.pexels.com/photos/5029923/pexels-photo-5029923.jpeg",
-
-    images: [
-      "https://images.pexels.com/photos/5029923/pexels-photo-5029923.jpeg",
-      "https://images.pexels.com/photos/36713458/pexels-photo-36713458.jpeg",
-      "https://images.pexels.com/photos/9543398/pexels-photo-9543398.jpeg",
+      "https://images.pexels.com/photos/3184436/pexels-photo-3184436.jpeg",
+      "https://images.pexels.com/photos/3182773/pexels-photo-3182773.jpeg",
+      "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg",
     ],
 
     participants: "35+",
     organizer: "Karsa",
-    partners: ["Komunitas Hijau", "Relawan Muda"],
 
-    impact:
-      "Menambah ruang hijau sekaligus mengajak generasi muda terlibat langsung dalam kegiatan pelestarian lingkungan.",
-
-    activities: [
-      "Persiapan bibit",
-      "Penanaman pohon",
-      "Penyiraman tanaman",
-      "Edukasi perawatan pohon",
-    ],
-
-    tags: ["Pohon", "Lingkungan", "Reboisasi", "Volunteer"],
-
-    status: "Selesai",
-    featured: true,
-  },
-
-  {
-    id: "kolaborasi-komunitas",
-    slug: "kolaborasi-komunitas",
-
-    title: "Kolaborasi Bersama Komunitas",
-    shortDescription:
-      "Menghubungkan berbagai komunitas untuk menciptakan gerakan bersama.",
-    description:
-      "Kolaborasi komunitas menjadi ruang untuk mempertemukan berbagai kelompok dengan latar belakang dan fokus yang berbeda. Melalui diskusi, berbagi pengalaman, dan perencanaan kegiatan, kolaborasi ini diharapkan dapat melahirkan aksi yang lebih luas.",
-
-    category: "Komunitas",
-    location: "Jakarta",
-    date: "10 Maret 2026",
-    time: "09.00 - 13.00 WIB",
-
-    image:
-      "https://images.pexels.com/photos/36713461/pexels-photo-36713461.jpeg",
-
-    images: [
-      "https://images.pexels.com/photos/36713461/pexels-photo-36713461.jpeg",
-      "https://images.pexels.com/photos/36713463/pexels-photo-36713463.jpeg",
-      "https://images.pexels.com/photos/9543406/pexels-photo-9543406.jpeg",
-    ],
-
-    participants: "50+",
-    organizer: "Karsa",
     partners: [
-      "Komunitas Pemuda",
-      "Komunitas Lingkungan",
-      "Organisasi Sosial",
+      "Komunitas Hijau",
+      "Youth Community",
     ],
 
     impact:
-      "Memperluas jaringan kolaborasi dan membuka peluang terbentuknya kegiatan bersama antar komunitas.",
+      "Meningkatkan pemahaman peserta mengenai persoalan lingkungan dan mendorong kebiasaan sederhana yang lebih ramah lingkungan.",
 
     activities: [
-      "Forum komunitas",
-      "Diskusi kolaborasi",
-      "Sharing pengalaman",
-      "Perencanaan program",
-      "Networking",
+      "Diskusi lingkungan",
+      "Studi kasus",
+      "Kerja kelompok",
+      "Presentasi",
+      "Refleksi",
     ],
 
-    tags: ["Komunitas", "Kolaborasi", "Networking", "Youth"],
+    tags: [
+      "Environment",
+      "Education",
+      "Youth",
+      "Community",
+    ],
 
     status: "Selesai",
-    featured: true,
+    featured: false,
   },
 
   {
-    id: "gerakan-anak-muda",
-    slug: "gerakan-anak-muda",
+    id: "berbagi-sembako",
+    slug: "berbagi-sembako",
 
-    title: "Gerakan Generasi Muda",
+    title: "Berbagi Bersama",
     shortDescription:
-      "Mendorong generasi muda untuk aktif terlibat dalam kegiatan sosial dan lingkungan.",
+      "Aksi sosial untuk berbagi kebutuhan dan membangun kepedulian bersama.",
     description:
-      "Gerakan Generasi Muda merupakan kegiatan yang dirancang sebagai ruang belajar dan berkontribusi bagi anak muda. Peserta diajak untuk berdiskusi, bekerja dalam tim, dan terlibat dalam aktivitas yang memberikan manfaat bagi lingkungan sekitar.",
+      "Berbagi Bersama merupakan kegiatan sosial yang mengajak relawan untuk terlibat langsung dalam membantu masyarakat. Kegiatan dilakukan dengan membagikan kebutuhan pokok sekaligus membangun interaksi dan kebersamaan dengan penerima manfaat.",
 
-    category: "Generasi Muda",
+    category: "Sosial",
     location: "Depok",
-    date: "18 April 2026",
+    date: "30 Agustus 2026",
     time: "08.00 - 12.00 WIB",
 
     image:
-      "https://images.pexels.com/photos/9543412/pexels-photo-9543412.jpeg",
+      "https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg",
 
     images: [
-      "https://images.pexels.com/photos/9543412/pexels-photo-9543412.jpeg",
-      "https://images.pexels.com/photos/9543406/pexels-photo-9543406.jpeg",
-      "https://images.pexels.com/photos/36713463/pexels-photo-36713463.jpeg",
-    ],
-
-    participants: "60+",
-    organizer: "Karsa",
-    partners: ["Youth Community", "Volunteer Network"],
-
-    impact:
-      "Meningkatkan keterlibatan generasi muda dalam kegiatan sosial, lingkungan, dan pengembangan komunitas.",
-
-    activities: [
-      "Leadership session",
-      "Diskusi kelompok",
-      "Team building",
-      "Aksi sosial",
-      "Refleksi kegiatan",
-    ],
-
-    tags: ["Youth", "Leadership", "Community", "Volunteer"],
-
-    status: "Selesai",
-    featured: true,
-  },
-
-  {
-    id: "menanam-bersama",
-    slug: "menanam-bersama",
-
-    title: "Menanam Bersama",
-    shortDescription:
-      "Kegiatan penghijauan yang dilakukan bersama masyarakat dan relawan.",
-    description:
-      "Menanam Bersama merupakan kegiatan penghijauan yang mengajak masyarakat untuk berpartisipasi secara langsung dalam menciptakan lingkungan yang lebih hijau. Selain menanam, peserta mendapatkan pengetahuan dasar mengenai pemeliharaan tanaman.",
-
-    category: "Lingkungan",
-    location: "Bogor",
-    date: "12 Mei 2026",
-    time: "07.30 - 11.00 WIB",
-
-    image:
-      "https://images.pexels.com/photos/36713458/pexels-photo-36713458.jpeg",
-
-    images: [
-      "https://images.pexels.com/photos/36713458/pexels-photo-36713458.jpeg",
-      "https://images.pexels.com/photos/5029923/pexels-photo-5029923.jpeg",
-      "https://images.pexels.com/photos/9543398/pexels-photo-9543398.jpeg",
+      "https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg",
+      "https://images.pexels.com/photos/6994982/pexels-photo-6994982.jpeg",
+      "https://images.pexels.com/photos/6646868/pexels-photo-6646868.jpeg",
     ],
 
     participants: "45+",
     organizer: "Karsa",
-    partners: ["Komunitas Hijau", "Warga Setempat"],
 
-    impact:
-      "Mendorong budaya menanam dan memperkenalkan pentingnya ruang hijau kepada masyarakat.",
-
-    activities: [
-      "Distribusi bibit",
-      "Penanaman",
-      "Pembersihan area",
-      "Perawatan tanaman",
+    partners: [
+      "Relawan Karsa",
+      "Komunitas Sosial",
     ],
 
-    tags: ["Planting", "Green", "Environment", "Community"],
+    impact:
+      "Membantu memenuhi kebutuhan masyarakat sekaligus menumbuhkan semangat berbagi dan kepedulian sosial.",
+
+    activities: [
+      "Persiapan bantuan",
+      "Distribusi kebutuhan",
+      "Interaksi bersama warga",
+      "Aktivitas sosial",
+      "Dokumentasi",
+    ],
+
+    tags: [
+      "Social",
+      "Sharing",
+      "Volunteer",
+      "Community",
+    ],
 
     status: "Selesai",
     featured: false,
   },
 
   {
-    id: "aksi-sosial",
-    slug: "aksi-sosial",
+    id: "diskusi-komunitas",
+    slug: "diskusi-komunitas",
 
-    title: "Aksi Sosial Karsa",
+    title: "Ruang Diskusi Komunitas",
     shortDescription:
-      "Berbagi dan membantu masyarakat melalui kegiatan sosial bersama.",
+      "Ruang bertukar gagasan untuk membangun gerakan komunitas yang lebih kuat.",
     description:
-      "Aksi Sosial Karsa menjadi wadah bagi relawan untuk berbagi waktu, tenaga, dan perhatian kepada masyarakat. Kegiatan dikemas dalam bentuk interaksi langsung serta aktivitas sosial yang disesuaikan dengan kebutuhan penerima manfaat.",
+      "Ruang Diskusi Komunitas mempertemukan berbagai individu dan komunitas untuk bertukar pengalaman, membicarakan isu sosial dan lingkungan, serta menemukan peluang kolaborasi. Kegiatan berlangsung secara terbuka dengan suasana diskusi yang santai dan partisipatif.",
 
-    category: "Sosial",
+    category: "Komunitas",
     location: "Jakarta",
-    date: "8 Juni 2026",
-    time: "09.00 - 14.00 WIB",
+    date: "12 September 2026",
+    time: "13.00 - 16.00 WIB",
 
     image:
-      "https://images.pexels.com/photos/36713451/pexels-photo-36713451.jpeg",
+      "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg",
 
     images: [
-      "https://images.pexels.com/photos/36713451/pexels-photo-36713451.jpeg",
-      "https://images.pexels.com/photos/36713463/pexels-photo-36713463.jpeg",
-      "https://images.pexels.com/photos/9543406/pexels-photo-9543406.jpeg",
+      "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg",
+      "https://images.pexels.com/photos/3184431/pexels-photo-3184431.jpeg",
+      "https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg",
+    ],
+
+    participants: "40+",
+    organizer: "Karsa",
+
+    partners: [
+      "Komunitas Lokal",
+      "Organisasi Pemuda",
+      "Komunitas Sosial",
+    ],
+
+    impact:
+      "Membuka ruang pertukaran ide dan memperkuat hubungan antar komunitas untuk membangun kegiatan bersama.",
+
+    activities: [
+      "Community talk",
+      "Diskusi kelompok",
+      "Sharing pengalaman",
+      "Ideation",
+      "Networking",
+    ],
+
+    tags: [
+      "Community",
+      "Discussion",
+      "Collaboration",
+      "Networking",
+    ],
+
+    status: "Selesai",
+    featured: false,
+  },
+
+  {
+    id: "aksi-pantai",
+    slug: "aksi-pantai",
+
+    title: "Aksi Bersih Pantai",
+    shortDescription:
+      "Aksi bersama membersihkan kawasan pantai dan mengurangi sampah di lingkungan pesisir.",
+    description:
+      "Aksi Bersih Pantai mengajak relawan dan masyarakat untuk terlibat langsung dalam menjaga kawasan pesisir. Peserta melakukan pembersihan area pantai, memilah sampah yang terkumpul, serta mendapatkan edukasi mengenai dampak sampah terhadap ekosistem laut.",
+
+    category: "Lingkungan",
+    location: "Jakarta Utara",
+    date: "20 September 2026",
+    time: "07.00 - 11.00 WIB",
+
+    image:
+      "https://images.pexels.com/photos/6646917/pexels-photo-6646917.jpeg",
+
+    images: [
+      "https://images.pexels.com/photos/6646917/pexels-photo-6646917.jpeg",
+      "https://images.pexels.com/photos/3850512/pexels-photo-3850512.jpeg",
+      "https://images.pexels.com/photos/7656748/pexels-photo-7656748.jpeg",
+    ],
+
+    participants: "75+",
+    organizer: "Karsa",
+
+    partners: [
+      "Komunitas Pesisir",
+      "Relawan Lingkungan",
+    ],
+
+    impact:
+      "Mengurangi sampah di kawasan pesisir dan meningkatkan kesadaran peserta mengenai pentingnya menjaga ekosistem laut.",
+
+    activities: [
+      "Pembersihan pantai",
+      "Pengumpulan sampah",
+      "Pemilahan sampah",
+      "Edukasi ekosistem laut",
+      "Dokumentasi",
+    ],
+
+    tags: [
+      "Beach",
+      "Cleanup",
+      "Environment",
+      "Volunteer",
+    ],
+
+    status: "Selesai",
+    featured: true,
+  },
+
+  {
+    id: "workshop-kepemudaan",
+    slug: "workshop-kepemudaan",
+
+    title: "Workshop Kepemudaan",
+    shortDescription:
+      "Membekali generasi muda dengan pengalaman, wawasan, dan ruang untuk berkembang.",
+    description:
+      "Workshop Kepemudaan menjadi ruang belajar bagi anak muda untuk mengembangkan kemampuan komunikasi, kepemimpinan, dan kerja sama. Peserta mengikuti beberapa sesi pembelajaran dan aktivitas kelompok yang dirancang untuk mendorong keberanian mengambil peran dalam komunitas.",
+
+    category: "Generasi Muda",
+    location: "Bogor",
+    date: "4 Oktober 2026",
+    time: "08.00 - 15.00 WIB",
+
+    image:
+      "https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg",
+
+    images: [
+      "https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg",
+      "https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg",
+      "https://images.pexels.com/photos/1181345/pexels-photo-1181345.jpeg",
     ],
 
     participants: "55+",
     organizer: "Karsa",
-    partners: ["Komunitas Sosial", "Relawan Karsa"],
 
-    impact:
-      "Membangun kepedulian sosial dan memperkuat hubungan antara relawan dengan masyarakat.",
-
-    activities: [
-      "Kunjungan sosial",
-      "Berbagi kebutuhan",
-      "Interaksi bersama warga",
-      "Permainan edukatif",
-      "Dokumentasi",
+    partners: [
+      "Youth Community",
+      "Volunteer Network",
     ],
 
-    tags: ["Social", "Volunteer", "Community", "Sharing"],
-
-    status: "Selesai",
-    featured: false,
-  },
-
-  {
-    id: "kelas-generasi-muda",
-    slug: "kelas-generasi-muda",
-
-    title: "Kelas Generasi Muda",
-    shortDescription:
-      "Ruang belajar untuk mengembangkan kemampuan dan kepedulian anak muda.",
-    description:
-      "Kelas Generasi Muda menjadi ruang pembelajaran yang mempertemukan anak muda untuk berdiskusi dan mengembangkan kemampuan. Materi kegiatan berfokus pada kepemimpinan, komunikasi, kerja sama, serta kontribusi sosial.",
-
-    category: "Generasi Muda",
-    location: "Depok",
-    date: "20 Juni 2026",
-    time: "09.00 - 12.00 WIB",
-
-    image:
-      "https://images.pexels.com/photos/9543406/pexels-photo-9543406.jpeg",
-
-    images: [
-      "https://images.pexels.com/photos/9543406/pexels-photo-9543406.jpeg",
-      "https://images.pexels.com/photos/9543412/pexels-photo-9543412.jpeg",
-      "https://images.pexels.com/photos/36713461/pexels-photo-36713461.jpeg",
-    ],
-
-    participants: "30+",
-    organizer: "Karsa",
-    partners: ["Youth Community", "Volunteer Network"],
-
     impact:
-      "Membantu peserta mengembangkan kemampuan komunikasi, kepemimpinan, dan kerja sama.",
+      "Mendorong generasi muda untuk lebih percaya diri, aktif berkolaborasi, dan mengambil peran dalam kegiatan komunitas.",
 
     activities: [
+      "Leadership workshop",
+      "Public speaking",
+      "Team building",
+      "Group discussion",
+      "Reflection",
+    ],
+
+    tags: [
+      "Youth",
+      "Leadership",
       "Workshop",
-      "Diskusi",
-      "Presentasi",
-      "Team activity",
-      "Sharing session",
+      "Education",
     ],
-
-    tags: ["Education", "Youth", "Leadership", "Workshop"],
-
-    status: "Selesai",
-    featured: false,
-  },
-
-  {
-    id: "bersih-sungai",
-    slug: "bersih-sungai",
-
-    title: "Bersih Sungai",
-    shortDescription:
-      "Aksi bersama untuk menjaga kebersihan kawasan sungai dan sekitarnya.",
-    description:
-      "Bersih Sungai merupakan aksi lingkungan yang berfokus pada pengurangan sampah di sekitar aliran sungai. Relawan bersama masyarakat melakukan pembersihan area sekaligus membangun kesadaran mengenai dampak sampah terhadap ekosistem.",
-
-    category: "Lingkungan",
-    location: "Bogor",
-    date: "5 Juli 2026",
-    time: "07.00 - 11.00 WIB",
-
-    image:
-      "https://images.pexels.com/photos/36713476/pexels-photo-36713476.jpeg",
-
-    images: [
-      "https://images.pexels.com/photos/36713476/pexels-photo-36713476.jpeg",
-      "https://images.pexels.com/photos/37595624/pexels-photo-37595624.jpeg",
-      "https://images.pexels.com/photos/36713461/pexels-photo-36713461.jpeg",
-    ],
-
-    participants: "70+",
-    organizer: "Karsa",
-    partners: ["Komunitas Sungai", "Warga Lokal"],
-
-    impact:
-      "Meningkatkan kesadaran masyarakat mengenai pentingnya menjaga kebersihan sungai dan ekosistem di sekitarnya.",
-
-    activities: [
-      "Pembersihan sungai",
-      "Pengumpulan sampah",
-      "Pemilahan sampah",
-      "Edukasi lingkungan",
-      "Dokumentasi",
-    ],
-
-    tags: ["River", "Cleanup", "Environment", "Volunteer"],
 
     status: "Selesai",
     featured: true,
   },
 
   {
-    id: "komunitas-karsa",
-    slug: "komunitas-karsa",
+    id: "bank-sampah",
+    slug: "bank-sampah",
 
-    title: "Bersama Komunitas",
+    title: "Gerakan Bank Sampah",
     shortDescription:
-      "Membangun ruang kolaborasi bersama berbagai komunitas.",
+      "Mengenalkan pengelolaan sampah melalui pemilahan dan pengumpulan sampah bernilai.",
     description:
-      "Kegiatan Bersama Komunitas menjadi ruang untuk memperkuat hubungan dengan berbagai komunitas dan organisasi. Kegiatan berisi diskusi, pertukaran pengalaman, serta penyusunan ide untuk kegiatan sosial dan lingkungan.",
+      "Gerakan Bank Sampah mengajak masyarakat memahami bahwa sampah dapat dikelola dengan lebih baik. Peserta belajar memilah sampah berdasarkan jenisnya dan memahami proses sederhana pengumpulan serta pengelolaan sampah yang dapat digunakan kembali.",
 
-    category: "Komunitas",
-    location: "Jakarta",
-    date: "18 Juli 2026",
-    time: "10.00 - 14.00 WIB",
+    category: "Lingkungan",
+    location: "Depok",
+    date: "18 Oktober 2026",
+    time: "08.00 - 11.30 WIB",
 
     image:
-      "https://images.pexels.com/photos/36713463/pexels-photo-36713463.jpeg",
+      "https://images.pexels.com/photos/3735219/pexels-photo-3735219.jpeg",
 
     images: [
-      "https://images.pexels.com/photos/36713463/pexels-photo-36713463.jpeg",
-      "https://images.pexels.com/photos/36713461/pexels-photo-36713461.jpeg",
-      "https://images.pexels.com/photos/9543412/pexels-photo-9543412.jpeg",
+      "https://images.pexels.com/photos/3735219/pexels-photo-3735219.jpeg",
+      "https://images.pexels.com/photos/802221/pexels-photo-802221.jpeg",
+      "https://images.pexels.com/photos/3735218/pexels-photo-3735218.jpeg",
     ],
 
     participants: "50+",
     organizer: "Karsa",
+
     partners: [
-      "Komunitas Lokal",
-      "Organisasi Pemuda",
-      "Komunitas Lingkungan",
+      "Komunitas Hijau",
+      "Bank Sampah Lokal",
     ],
 
     impact:
-      "Memperluas jejaring Karsa dan membuka kesempatan untuk menjalankan kegiatan bersama komunitas lain.",
+      "Meningkatkan pemahaman masyarakat mengenai pemilahan sampah dan mendorong kebiasaan pengelolaan sampah yang lebih baik.",
 
     activities: [
-      "Community meetup",
-      "Diskusi",
-      "Sharing session",
-      "Networking",
-      "Kolaborasi program",
+      "Edukasi sampah",
+      "Pemilahan sampah",
+      "Pengumpulan sampah",
+      "Praktik daur ulang",
+      "Diskusi warga",
     ],
 
-    tags: ["Community", "Collaboration", "Networking", "Youth"],
+    tags: [
+      "Waste",
+      "Environment",
+      "Recycling",
+      "Community",
+    ],
 
     status: "Selesai",
     featured: false,
   },
 
   {
-    id: "aksi-lingkungan",
-    slug: "aksi-lingkungan",
+    id: "hari-komunitas",
+    slug: "hari-komunitas",
 
-    title: "Gerakan Peduli Lingkungan",
+    title: "Hari Bersama Komunitas",
     shortDescription:
-      "Gerakan bersama untuk membangun kebiasaan sederhana yang lebih peduli lingkungan.",
+      "Mempertemukan komunitas dan relawan dalam satu ruang untuk berbagi dan berkolaborasi.",
     description:
-      "Gerakan Peduli Lingkungan mengajak masyarakat untuk memahami bahwa menjaga lingkungan dapat dimulai dari kebiasaan sederhana. Kegiatan menggabungkan edukasi, aksi lapangan, dan kolaborasi antar peserta.",
+      "Hari Bersama Komunitas menjadi momen untuk mempertemukan berbagai komunitas, relawan, dan individu yang memiliki semangat untuk bergerak bersama. Kegiatan diisi dengan sharing session, aktivitas kelompok, serta ruang terbuka untuk membangun koneksi baru.",
 
-    category: "Lingkungan",
-    location: "Depok",
-    date: "2 Agustus 2026",
-    time: "07.30 - 11.30 WIB",
+    category: "Komunitas",
+    location: "Bogor",
+    date: "1 November 2026",
+    time: "09.00 - 15.00 WIB",
 
     image:
-      "https://images.pexels.com/photos/9543398/pexels-photo-9543398.jpeg",
+      "https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg",
 
     images: [
-      "https://images.pexels.com/photos/9543398/pexels-photo-9543398.jpeg",
-      "https://images.pexels.com/photos/37595624/pexels-photo-37595624.jpeg",
-      "https://images.pexels.com/photos/5029923/pexels-photo-5029923.jpeg",
+      "https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg",
+      "https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg",
+      "https://images.pexels.com/photos/3184431/pexels-photo-3184431.jpeg",
     ],
 
-    participants: "80+",
+    participants: "90+",
     organizer: "Karsa",
-    partners: ["Komunitas Hijau", "Relawan Karsa", "Warga Setempat"],
+
+    partners: [
+      "Komunitas Pemuda",
+      "Komunitas Lingkungan",
+      "Komunitas Sosial",
+    ],
 
     impact:
-      "Mendorong masyarakat untuk menerapkan kebiasaan yang lebih peduli terhadap lingkungan dalam kehidupan sehari-hari.",
+      "Memperluas jaringan komunitas dan menciptakan ruang baru untuk kolaborasi dalam kegiatan sosial dan lingkungan.",
 
     activities: [
-      "Aksi lingkungan",
-      "Edukasi",
-      "Pemilahan sampah",
-      "Penanaman",
       "Community gathering",
+      "Sharing session",
+      "Community showcase",
+      "Networking",
+      "Kolaborasi program",
     ],
 
-    tags: ["Environment", "Green Action", "Community", "Volunteer"],
+    tags: [
+      "Community",
+      "Gathering",
+      "Collaboration",
+      "Youth",
+    ],
 
     status: "Selesai",
     featured: true,
+  },
+
+  {
+    id: "kelas-relawan",
+    slug: "kelas-relawan",
+
+    title: "Kelas Relawan Karsa",
+    shortDescription:
+      "Mempersiapkan relawan agar siap terlibat dalam berbagai kegiatan Karsa.",
+    description:
+      "Kelas Relawan Karsa menjadi ruang pengenalan bagi relawan baru untuk memahami nilai, cara kerja, dan berbagai kegiatan yang dilakukan Karsa. Peserta juga mendapatkan kesempatan untuk berdiskusi dan mengenal peran yang dapat mereka ambil dalam kegiatan berikutnya.",
+
+    category: "Generasi Muda",
+    location: "Depok",
+    date: "15 November 2026",
+    time: "09.00 - 12.00 WIB",
+
+    image:
+      "https://images.pexels.com/photos/3184432/pexels-photo-3184432.jpeg",
+
+    images: [
+      "https://images.pexels.com/photos/3184432/pexels-photo-3184432.jpeg",
+      "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg",
+      "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg",
+    ],
+
+    participants: "40+",
+    organizer: "Karsa",
+
+    partners: [
+      "Volunteer Network",
+      "Youth Community",
+    ],
+
+    impact:
+      "Membantu relawan memahami peran mereka dan meningkatkan kesiapan untuk terlibat dalam berbagai aksi Karsa.",
+
+    activities: [
+      "Pengenalan Karsa",
+      "Volunteer briefing",
+      "Team activity",
+      "Pembagian peran",
+      "Sharing session",
+    ],
+
+    tags: [
+      "Volunteer",
+      "Youth",
+      "Community",
+      "Training",
+    ],
+
+    status: "Selesai",
+    featured: false,
   },
 ]
