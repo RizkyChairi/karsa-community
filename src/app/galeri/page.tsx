@@ -43,3 +43,13 @@ const categories = [
   "Generasi Muda",
 ]
 
+export default function GaleriPage() {
+  const [activeCategory, setActiveCategory] = useState("Semua")
+
+  const filteredGalleries =
+    activeCategory === "Semua"
+      ? galleries
+      : galleries.filter(
+        (gallery) => gallery.category === activeCategory
+      )
+}
