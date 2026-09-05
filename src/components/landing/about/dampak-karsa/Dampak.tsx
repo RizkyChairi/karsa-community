@@ -151,7 +151,6 @@ export default function DampakKarsa() {
       </div>
 
       <div className="mx-auto max-w-5xl">
-
         <div>
           {visibleContributions.map((item, index) => (
 
@@ -289,8 +288,6 @@ export default function DampakKarsa() {
 
           ))}
         </div>
-
-
         {contributions.length > 3 && (
           <div className="flex justify-center border-t border-karsa-black/10 pt-8">
 
