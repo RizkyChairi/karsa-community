@@ -96,6 +96,29 @@ export default function GallerySection() {
           ))}
         </div>
 
+        {/* CTA */}
+        <ScrollReveal
+          direction="up"
+          duration={0.7}
+          delay={0.15}
+        >
+          <div className="mt-8 flex justify-center">
+            <Link
+              href="/galeri"
+              className="group flex items-center gap-2 text-sm font-medium text-karsa-black"
+            >
+              <span className="border-b border-karsa-black pb-1">
+                Lihat semua galeri
+              </span>
+
+              <ArrowUpRight
+                size={17}
+                strokeWidth={1.7}
+                className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+              />
+            </Link>
+          </div>
+        </ScrollReveal>
 
       </div>
     </section>
