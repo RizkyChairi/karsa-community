@@ -151,6 +151,7 @@ export default function DampakKarsa() {
           </div>
         </ScrollReveal>
       </div>
+
       <div className="mx-auto max-w-5xl">
 
         <div>
@@ -317,6 +318,32 @@ export default function DampakKarsa() {
           </div>
         )}
       </div>
+      <ScrollReveal direction="up" duration={0.7}>
+        <div className="mx-auto flex max-w-5xl flex-col gap-5 border-t border-karsa-black/10 pt-8 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-lg font-semibold tracking-tight text-karsa-black">
+              Perjalanan ini masih terus berjalan.
+            </p>
+            <p className="mt-1 max-w-md text-sm leading-relaxed text-gray-500">
+              Setiap kegiatan menjadi bagian dari cerita dan kontribusi Karsa
+              untuk terus bergerak bersama.
+            </p>
+          </div>
+          <a
+            href="/kegiatan"
+            className="group inline-flex w-fit items-center gap-2 text-sm font-medium text-karsa-black"
+          >
+            <span className="border-b border-karsa-black pb-1">
+              Lihat seluruh rekam jejak
+            </span>
+            <ArrowUpRight
+              size={17}
+              strokeWidth={1.7}
+              className="transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+            />
+          </a>
+        </div>
+      </ScrollReveal>
     </div>
   )
 }
