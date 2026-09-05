@@ -6,7 +6,7 @@ import AboutKarsa from "@/components/landing/about/about-karsa/About"
 import VisiMisi from "@/components/landing/about/visimisi-karsa/Visimisi"
 import ProgramKarsa from "@/components/landing/about/program/program"
 import DampakKarsa from "@/components/landing/about/dampak-karsa/Dampak"
-import GallerySection from "@/components/landing/galeri/Galeri"
+// import GallerySection from "@/components/landing/galeri/Galeri"
 
 export default function LandingPage() {
   return (
@@ -43,7 +43,7 @@ export default function LandingPage() {
       {/* Galeri */}
       <section id="galeri" className="py-10 md:py-20">
         <div>
-          <GallerySection />
+          {/* <GallerySection /> */}
         </div>
       </section>
 

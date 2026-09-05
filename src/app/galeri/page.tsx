@@ -1,5 +1,5 @@
 export default function Galeri() {
   return (
-    <div>KNTL</div>
+    <div>Test</div>
   )
 }
