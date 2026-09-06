@@ -44,6 +44,7 @@ export default function LatestActivities() {
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {latestActivities.map((activity, index) => (
             <ScrollReavel delay={index === 1 ? 1 : index * 0.2}>
+              {/* Card */}
               <Link
                 key={activity.id}
                 href={`/kegiatan/${activity.slug}`}
