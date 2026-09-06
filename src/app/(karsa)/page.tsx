@@ -26,7 +26,7 @@ export default function LandingPage() {
           <AboutKarsa />
         </div>
       </section>
-      <section id="visimisi" className="py-10 md:py-20">
+      <section id="visi-misi" className="py-10 md:py-20">
         <div>
           <VisiMisi />
         </div>
@@ -50,7 +50,7 @@ export default function LandingPage() {
       </section>
 
       {/* Kegiatan */}
-      <section id="galeri" className="py-10 md:py-20">
+      <section id="kegiatan-karsa" className="py-10 md:py-20">
         <div>
           <LatestActivities />
         </div>

@@ -15,7 +15,7 @@ const latestActivities = [...activities]
 
 export default function LatestActivities() {
   return (
-    <section className="">
+    <div className="">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-12 flex items-end justify-between gap-6">
           <div>
@@ -112,6 +112,6 @@ export default function LatestActivities() {
         </div>
 
       </div>
-    </section>
+    </div>
   )
 }
