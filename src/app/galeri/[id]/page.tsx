@@ -13,7 +13,7 @@ import {
 import ScrollReveal from "@/components/ui/ScrollReveal"
 import { galleries } from "@/constants/Galleries"
 
-// Warna aksen
+// Warna aksen untuk kategori
 const accentColors = [
   { dot: "bg-karsa-green", text: "text-karsa-primary" },
   { dot: "bg-karsa-yellow", text: "text-karsa-black" },
