@@ -42,4 +42,31 @@ export default function KegiatanPage() {
     setYear("Semua")
     setSort("Terbaru")
   }
+
+
+  const filteredActivities = activities
+    .filter((activity) => {
+      const activityYear = activity.date.split(" ").pop()
+
+      if (category !== "Semua" && activity.category !== category) {
+        return false
+      }
+
+      if (year !== "Semua" && activityYear !== year) {
+        return false
+      }
+
+      return true
+    })
+    .sort((a, b) => {
+      const dateA = a.date.split(" ").reverse().join(" ")
+      const dateB = b.date.split(" ").reverse().join(" ")
+
+      return sort === "Terbaru"
+        ? dateB.localeCompare(dateA)
+        : dateA.localeCompare(dateB)
+    })
+
+
+
 }
