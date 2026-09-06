@@ -389,7 +389,48 @@ export default async function KegiatanDetailPage({ params }: Props) {
           ))}
         </div>
 
+        <section className="mt-24 border-t border-karsa-black/10 pt-12">
 
+          <div className="mb-10">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-karsa-black/30">
+              Dokumentasi
+            </p>
+
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-karsa-black">
+              Kegiatan dalam gambar.
+            </h2>
+          </div>
+
+          <div className="grid gap-5 sm:grid-cols-2">
+            {activity.images.map((image, index) => (
+              <div
+                key={index}
+                className="group relative aspect-[4/3] overflow-hidden rounded-2xl bg-karsa-black/5"
+              >
+                <Image
+                  src={image}
+                  alt={`${activity.title} ${index + 1}`}
+                  fill
+                  className="object-cover transition duration-700 group-hover:scale-[1.03]"
+                />
+              </div>
+            ))}
+          </div>
+
+        </section>
+
+        <div className="mt-20 border-t border-karsa-black/10 pt-8">
+          <Link
+            href="/kegiatan"
+            className="group inline-flex items-center gap-2 text-sm font-medium text-karsa-black/40 transition hover:text-karsa-black"
+          >
+            <ArrowLeft
+              size={16}
+              className="transition-transform group-hover:-translate-x-1"
+            />
+            Lihat semua kegiatan
+          </Link>
+        </div>
 
       </div>
     </main>
