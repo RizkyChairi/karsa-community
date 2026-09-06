@@ -1,4 +1,20 @@
-export const contributions = [
+export type contribution = {
+  date: string
+  month: string
+  year: string
+  location: string
+  category: string
+  title: string
+  description: string
+  participants: string
+  partner: string
+  impact: string
+  image: string
+  accent: string
+  border: string
+}
+
+export const contributions: contribution[] = [
   {
     date: "12 Januari 2026",
     month: "Januari",
