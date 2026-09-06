@@ -44,5 +44,30 @@ export default async function KegiatanDetailPage({ params }: Props) {
     )
   }
 
+  const participantPercentage = Math.min(
+    Math.round((activity.participants / activity.maxParticipants) * 100),
+    100
+  )
 
+  return (
+    <main className="min-h-screen bg-white px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+      <div className="mx-auto max-w-6xl">
+
+        <Link
+          href="/kegiatan"
+          className="group mb-14 inline-flex items-center gap-2 text-sm text-karsa-black/40 transition hover:text-karsa-black"
+        >
+          <ArrowLeft
+            size={16}
+            className="transition-transform group-hover:-translate-x-1"
+          />
+          Kembali ke kegiatan
+        </Link>
+
+
+
+
+      </div>
+    </main>
+  )
 }
