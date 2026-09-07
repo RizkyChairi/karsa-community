@@ -13,7 +13,7 @@ export default function KarsaLayout({
       <main className="pt-30 px-4 md:px-10 lg:px-25">
         {children}
       </main>
-      {/* <FloatingVideo /> */}
+      <FloatingVideo />
     </>
   )
 }
