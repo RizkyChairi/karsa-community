@@ -1,0 +1,156 @@
+import {
+  mysqlTable,
+  mysqlEnum,
+  int,
+  varchar,
+  text,
+  timestamp,
+} from 'drizzle-orm/mysql-core';
+
+// =======================
+// ENUM
+// =======================
+
+export const USER_ROLES = ['user', 'admin'] as const;
+
+export const POST_STATUS = ['delete', 'published'] as const;
+
+// =======================
+// USERS
+// =======================
+
+export const usersTable = mysqlTable('users', {
+  id: int('id').autoincrement().primaryKey(),
+
+  username: varchar('username', { length: 50 }).notNull(),
+
+  email: varchar('email', { length: 100 }).notNull().unique(),
+
+  password: varchar('password', { length: 255 }).notNull(),
+
+  role: mysqlEnum('role', USER_ROLES)
+    .notNull()
+    .default('user'),
+
+  createdAt: timestamp('created_at')
+    .defaultNow(),
+
+  updatedAt: timestamp('updated_at')
+    .defaultNow()
+    .onUpdateNow(),
+});
+
+// =======================
+// POSTS
+// =======================
+
+export const postsTable = mysqlTable('posts', {
+  id: int('id').autoincrement().primaryKey(),
+
+  userId: int('user_id')
+    .notNull()
+    .references(() => usersTable.id, {
+      onDelete: 'cascade',
+    }),
+
+  title: varchar('title', { length: 255 })
+    .notNull(),
+
+  content: text('content')
+    .notNull(),
+
+  imageUrl: text('image_url'),
+
+  imagePublicId: varchar('image_public_id', {
+    length: 255,
+  }),
+
+  status: mysqlEnum('status', POST_STATUS)
+    .notNull()
+    .default('published'),
+
+  createdAt: timestamp('created_at')
+    .defaultNow(),
+
+  updatedAt: timestamp('updated_at')
+    .defaultNow()
+    .onUpdateNow(),
+});
+
+// =======================
+// COMMENTS
+// =======================
+
+export const commentsTable = mysqlTable('comments', {
+  id: int('id').autoincrement().primaryKey(),
+
+  postId: int('post_id')
+    .notNull()
+    .references(() => postsTable.id, {
+      onDelete: 'cascade',
+    }),
+
+  userId: int('user_id')
+    .notNull()
+    .references(() => usersTable.id, {
+      onDelete: 'cascade',
+    }),
+
+  comment: text('comment')
+    .notNull(),
+
+  createdAt: timestamp('created_at')
+    .defaultNow(),
+
+  updatedAt: timestamp('updated_at')
+    .defaultNow()
+    .onUpdateNow(),
+});
+
+// =======================
+// REVIEWS
+// =======================
+
+export const reviewsTable = mysqlTable('reviews', {
+  id: int('id').autoincrement().primaryKey(),
+
+  name: varchar('name', { length: 100 })
+    .notNull(),
+
+  rating: int('rating')
+    .notNull(),
+
+  message: text('message')
+    .notNull(),
+
+  createdAt: timestamp('created_at')
+    .defaultNow(),
+});
+
+// =======================
+// MESSAGES / HUBUNGI KAMI
+// =======================
+
+export const messagesTable = mysqlTable('messages', {
+  id: int('id').autoincrement().primaryKey(),
+
+  // Nama pengirim
+  name: varchar('name', { length: 100 })
+    .notNull(),
+
+  // Email pengirim
+  email: varchar('email', { length: 150 })
+    .notNull(),
+
+  // Nomor HP
+  phone: varchar('phone', { length: 20 })
+    .notNull(),
+
+  // Alasan ingin bergabung
+  message: text('message')
+    .notNull(),
+
+  // Waktu pesan dibuat
+  createdAt: timestamp('created_at')
+    .defaultNow(),
+});
