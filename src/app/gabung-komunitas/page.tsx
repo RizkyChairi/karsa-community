@@ -2,8 +2,11 @@
 
 import { useState } from "react"
 import { ArrowUpRight, Check, Loader2 } from "lucide-react"
+import { useRouter } from "next/navigation"
+import Link from "next/link"
 
 export default function JoinForm() {
+  const router = useRouter()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
 
@@ -17,6 +20,10 @@ export default function JoinForm() {
 
     setIsSubmitting(false)
     setIsSuccess(true)
+
+    setTimeout(() => {
+      router.push("/")
+    }, 2000)
   }
 
   return (
@@ -66,6 +73,13 @@ export default function JoinForm() {
                 bagi lingkungan sekitar.
               </p>
             </div>
+            <Link href="/">
+              <div
+                className=" group inline-flex items-center gap-2 rounded-full border border-karsa-black/10 bg-white px-5 py-2.5 text-sm font-medium text-karsa-black shadow-sm transition-all duration-300 hover:border-karsa-black hover:bg-karsa-black hover:text-white mt-10">
+                <span>←</span>
+                Kembali ke Beranda
+              </div>
+            </Link>
 
           </div>
 
@@ -303,11 +317,10 @@ export default function JoinForm() {
                 </button>
 
               </div>
-
             </form>
           </div>
-
         </div>
+
       </div>
     </section>
   )
