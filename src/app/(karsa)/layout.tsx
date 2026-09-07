@@ -1,5 +1,6 @@
 import FloatingVideo from "@/components/landing/FloatingVideo"
 import { Navbar } from "@/components/landing/Navbar"
+import Footer from "@/components/landing/Footer"
 
 export default function KarsaLayout({
   children,
@@ -13,7 +14,8 @@ export default function KarsaLayout({
       <main className="pt-30 px-4 md:px-10 lg:px-25">
         {children}
       </main>
-      <FloatingVideo />
+      <Footer />
+      {/* <FloatingVideo /> */}
     </>
   )
 }
