@@ -42,10 +42,10 @@ const navLinks: NavLink[] = [
     color: "#b764ff",
   },
   {
-    href: "#kegiatan",
+    href: "#kegiatan-karsa",
     label: "Kegiatan",
     color: "#ecab1d",
-  },
+  }
 ]
 
 export function Navbar() {
@@ -122,9 +122,9 @@ export function Navbar() {
       "beranda",
       "tentang",
       "visi-misi",
-      "kegiatan",
       "dampak",
       "galeri",
+      "kegiatan-karsa",
       "hubungi",
       "program",
     ]

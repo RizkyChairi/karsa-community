@@ -7,6 +7,7 @@ import VisiMisi from "@/components/landing/about/visimisi-karsa/Visimisi"
 import ProgramKarsa from "@/components/landing/about/program/program"
 import DampakKarsa from "@/components/landing/about/dampak-karsa/Dampak"
 import GallerySection from "@/components/landing/galeri/Galeri"
+import LatestActivities from "@/components/landing/kegiatan/Kegiatan"
 
 export default function LandingPage() {
   return (
@@ -25,7 +26,7 @@ export default function LandingPage() {
           <AboutKarsa />
         </div>
       </section>
-      <section id="visimisi" className="py-10 md:py-20">
+      <section id="visi-misi" className="py-10 md:py-20">
         <div>
           <VisiMisi />
         </div>
@@ -40,10 +41,18 @@ export default function LandingPage() {
           <DampakKarsa />
         </div>
       </section>
+
       {/* Galeri */}
       <section id="galeri" className="py-10 md:py-20">
         <div>
           <GallerySection />
+        </div>
+      </section>
+
+      {/* Kegiatan */}
+      <section id="kegiatan-karsa" className="py-10 md:py-20">
+        <div>
+          <LatestActivities />
         </div>
       </section>
 
