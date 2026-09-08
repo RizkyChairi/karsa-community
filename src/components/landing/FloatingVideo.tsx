@@ -155,7 +155,7 @@ export default function FloatingVideo() {
 
             <video
               ref={videoRef}
-              src="/videos/Attack on Titan Season 4 (Final Season) - Official Trailer.mp4"
+              src="/videos/VivalaViva.mp4"
               autoPlay
               muted={isMuted}
               playsInline
@@ -167,7 +167,7 @@ export default function FloatingVideo() {
               }}
 
               onTimeUpdate={(e) => {
-                if (e.currentTarget.currentTime >= 125) {
+                if (e.currentTarget.currentTime >= 150) {
                   e.currentTarget.currentTime = 86
                 }
               }}
