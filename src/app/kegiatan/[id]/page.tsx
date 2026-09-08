@@ -12,7 +12,7 @@ import {
   CheckCircle2,
 } from "lucide-react"
 
-import { activities } from "@/constants/Kegiatan"
+import type { Activity } from "@/types/activity"
 
 type Props = {
   params: Promise<{
@@ -23,7 +23,32 @@ type Props = {
 export default async function KegiatanDetailPage({ params }: Props) {
   const { id } = await params
 
-  const activity = activities.find((item) => item.slug === id)
+  let activity: Activity | null = null
+
+  try {
+    const response = await fetch(
+      "http://localhost:3001/api/kegiatan",
+      {
+        cache: "no-store",
+      }
+    )
+
+    if (!response.ok) {
+      throw new Error("Gagal mengambil data kegiatan")
+    }
+
+    const result = await response.json()
+
+    if (result.success && Array.isArray(result.data)) {
+      activity =
+        result.data.find(
+          (item: Activity) => item.slug === id
+        ) ?? null
+    }
+  } catch (error) {
+    console.error("Gagal mengambil detail kegiatan:", error)
+  }
+
   if (!activity) {
     return (
       <main className="min-h-screen bg-white px-4 py-20 sm:px-6 lg:px-8">
@@ -44,15 +69,21 @@ export default async function KegiatanDetailPage({ params }: Props) {
     )
   }
 
-  const participantPercentage = Math.min(
-    Math.round((activity.participants / activity.maxParticipants) * 100),
-    100
-  )
+  const participantPercentage =
+    activity.maxParticipants > 0
+      ? Math.min(
+        Math.round(
+          (activity.participants / activity.maxParticipants) * 100
+        ),
+        100
+      )
+      : 0
 
   return (
     <main className="min-h-screen bg-white px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
       <div className="mx-auto max-w-6xl">
 
+        {/* BACK */}
         <Link
           href="/kegiatan"
           className="group mb-14 inline-flex items-center gap-2 text-sm text-karsa-black/40 transition hover:text-karsa-black"
@@ -64,7 +95,7 @@ export default async function KegiatanDetailPage({ params }: Props) {
           Kembali ke kegiatan
         </Link>
 
-
+        {/* HEADER */}
         <section>
           <div className="max-w-4xl">
 
@@ -88,9 +119,11 @@ export default async function KegiatanDetailPage({ params }: Props) {
             <p className="mt-7 max-w-2xl text-base leading-8 text-karsa-black/50 sm:text-lg">
               {activity.shortDescription}
             </p>
+
           </div>
         </section>
 
+        {/* COVER */}
         <div className="relative mt-12 aspect-[16/8] overflow-hidden rounded-3xl bg-karsa-black/5">
           <Image
             src={activity.coverImage}
@@ -101,11 +134,13 @@ export default async function KegiatanDetailPage({ params }: Props) {
           />
         </div>
 
+        {/* MAIN CONTENT */}
         <section className="mt-16 grid gap-16 lg:grid-cols-[1fr_320px]">
 
+          {/* LEFT */}
           <div>
 
-            {/* About */}
+            {/* ABOUT */}
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-karsa-black/30">
                 Tentang kegiatan
@@ -116,8 +151,10 @@ export default async function KegiatanDetailPage({ params }: Props) {
               </p>
             </div>
 
+            {/* PARTICIPANTS */}
             <div className="mt-16 border-t border-karsa-black/10 pt-10">
               <div className="flex items-end justify-between gap-6">
+
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-karsa-black/30">
                     Target peserta
@@ -135,6 +172,7 @@ export default async function KegiatanDetailPage({ params }: Props) {
                 <p className="text-sm text-karsa-black/40">
                   {participantPercentage}%
                 </p>
+
               </div>
 
               <div className="mt-5 h-1.5 overflow-hidden rounded-full bg-karsa-black/10">
@@ -151,6 +189,7 @@ export default async function KegiatanDetailPage({ params }: Props) {
               </p>
             </div>
 
+            {/* IMPACT */}
             <div className="mt-14 border-t border-karsa-black/10 pt-10">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-karsa-black/30">
                 Dampak
@@ -161,6 +200,7 @@ export default async function KegiatanDetailPage({ params }: Props) {
               </p>
             </div>
 
+            {/* ACHIEVEMENT */}
             <div className="mt-12 flex gap-4 border-t border-karsa-black/10 pt-8">
               <CheckCircle2
                 size={20}
@@ -180,10 +220,12 @@ export default async function KegiatanDetailPage({ params }: Props) {
 
           </div>
 
+          {/* SIDEBAR */}
           <aside className="lg:border-l lg:border-karsa-black/10 lg:pl-10">
 
             <div className="space-y-8">
 
+              {/* DATE */}
               <div className="flex gap-4">
                 <CalendarDays
                   size={18}
@@ -201,6 +243,7 @@ export default async function KegiatanDetailPage({ params }: Props) {
                 </div>
               </div>
 
+              {/* TIME */}
               <div className="flex gap-4">
                 <Clock3
                   size={18}
@@ -222,7 +265,7 @@ export default async function KegiatanDetailPage({ params }: Props) {
                 </div>
               </div>
 
-              {/* Location */}
+              {/* LOCATION */}
               <div className="flex gap-4">
                 <MapPin
                   size={18}
@@ -244,7 +287,7 @@ export default async function KegiatanDetailPage({ params }: Props) {
                 </div>
               </div>
 
-              {/* Participants */}
+              {/* PARTICIPANTS */}
               <div className="flex gap-4">
                 <Users
                   size={18}
@@ -270,6 +313,7 @@ export default async function KegiatanDetailPage({ params }: Props) {
 
             <div className="my-10 border-t border-karsa-black/10" />
 
+            {/* ORGANIZER */}
             <div className="space-y-7">
 
               <div>
@@ -289,6 +333,7 @@ export default async function KegiatanDetailPage({ params }: Props) {
                 </p>
               </div>
 
+              {/* PARTNER */}
               <div>
                 <p className="text-xs uppercase tracking-[0.15em] text-karsa-black/30">
                   Mitra
@@ -299,6 +344,7 @@ export default async function KegiatanDetailPage({ params }: Props) {
                 </p>
               </div>
 
+              {/* COORDINATOR */}
               <div>
                 <div className="flex items-center gap-2">
                   <UserRound
@@ -321,6 +367,7 @@ export default async function KegiatanDetailPage({ params }: Props) {
                 </div>
               </div>
 
+              {/* VOLUNTEERS */}
               <div>
                 <p className="text-xs uppercase tracking-[0.15em] text-karsa-black/30">
                   Relawan
@@ -336,9 +383,11 @@ export default async function KegiatanDetailPage({ params }: Props) {
           </aside>
         </section>
 
+        {/* FACILITIES + REQUIREMENTS */}
         <section className="mt-20 border-t border-karsa-black/10 pt-12">
           <div className="grid gap-14 sm:grid-cols-2">
 
+            {/* FACILITIES */}
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-karsa-black/30">
                 Fasilitas
@@ -357,6 +406,7 @@ export default async function KegiatanDetailPage({ params }: Props) {
               </div>
             </div>
 
+            {/* REQUIREMENTS */}
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-karsa-black/30">
                 Persyaratan
@@ -378,6 +428,7 @@ export default async function KegiatanDetailPage({ params }: Props) {
           </div>
         </section>
 
+        {/* TAGS */}
         <div className="mt-12 flex flex-wrap gap-2">
           {activity.tags.map((tag, index) => (
             <span
@@ -389,6 +440,7 @@ export default async function KegiatanDetailPage({ params }: Props) {
           ))}
         </div>
 
+        {/* DOCUMENTATION */}
         <section className="mt-24 border-t border-karsa-black/10 pt-12">
 
           <div className="mb-10">
@@ -419,6 +471,7 @@ export default async function KegiatanDetailPage({ params }: Props) {
 
         </section>
 
+        {/* BACK TO ALL */}
         <div className="mt-20 border-t border-karsa-black/10 pt-8">
           <Link
             href="/kegiatan"
@@ -436,3 +489,4 @@ export default async function KegiatanDetailPage({ params }: Props) {
     </main>
   )
 }
+

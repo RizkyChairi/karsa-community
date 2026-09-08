@@ -1,0 +1,32 @@
+export type Activity = {
+  id: string
+  title: string
+  slug: string
+  category: string
+  shortDescription: string
+  description: string
+  date: string
+  time: string
+  endTime: string
+  location: string
+  address: string
+  organizer: string
+  participants: number
+  maxParticipants: number
+  target: string
+  impact: string
+  achievement: string
+  status: string
+  registration: string
+  coordinator: string
+  contact: string
+  partner: string
+  volunteers: number
+  budget: string
+  fundingSource: string
+  facilities: string[]
+  requirements: string[]
+  tags: string[]
+  coverImage: string
+  images: string[]
+}
