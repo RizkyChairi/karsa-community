@@ -3,10 +3,9 @@
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowUpRight, MapPin } from "lucide-react"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 import ScrollReveal from "@/components/ui/ScrollReveal"
-import { galleries } from "@/constants/Galleries"
 
 const accentColors = [
   {
@@ -43,8 +42,62 @@ const categories = [
   "Generasi Muda",
 ]
 
+type Gallery = {
+  id: string
+  slug: string
+  title: string
+  shortDescription: string
+  description: string
+  category: string
+  location: string
+  date: string
+  time: string
+  image: string
+  images: string[]
+  participants: string
+  organizer: string
+  partners: string[]
+  impact: string
+  activities: string[]
+  tags: string[]
+  status: string
+  featured: boolean
+}
+
 export default function GaleriPage() {
+  const [galleries, setGalleries] = useState<Gallery[]>([])
   const [activeCategory, setActiveCategory] = useState("Semua")
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    const fetchGalleries = async () => {
+      try {
+        setLoading(true)
+        setError(null)
+
+        const response = await fetch(
+          "http://localhost:3001/api/galleries"
+        )
+
+        if (!response.ok) {
+          throw new Error("Gagal mengambil data galeri")
+        }
+
+        const result = await response.json()
+
+        setGalleries(result.data)
+      } catch (error) {
+        console.error("Error fetch galleries:", error)
+
+        setError("Gagal memuat data galeri.")
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchGalleries()
+  }, [])
 
   const filteredGalleries =
     activeCategory === "Semua"

@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import { db } from '../../db/db';
-import { messagesTable } from '../../db/schema';
+import { db } from '../db/db';
+import { messagesTable } from '../db/schema';
 import { activities } from '@/data/Kegiatan';
 
 export const getKegiatan = async (req: Request, res: Response) => {
