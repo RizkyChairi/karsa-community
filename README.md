@@ -97,6 +97,13 @@ Task berikutnya akan ditambahkan ke dalam **GitHub Issues** sesuai prioritas dan
   <img src="./public/images/about/Karsa Community.png" width="800">
 </p>
 
+### Halaman Kegiatan
+<p align="center">
+  <img src="./public/images/about/Kegiatan.png" width="800">
+</p>
+
+
+
 
 
 
