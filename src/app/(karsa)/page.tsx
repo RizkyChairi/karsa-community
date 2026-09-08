@@ -8,6 +8,7 @@ import ProgramKarsa from "@/components/landing/about/program/program"
 import DampakKarsa from "@/components/landing/about/dampak-karsa/Dampak"
 import GallerySection from "@/components/landing/galeri/Galeri"
 import LatestActivities from "@/components/landing/kegiatan/Kegiatan"
+import { toast } from "@/components/ui/Sonner"
 
 export default function LandingPage() {
   return (
@@ -19,7 +20,6 @@ export default function LandingPage() {
           <Beranda />
         </div>
       </section>
-
       {/* Tentang Kami */}
       <section id="tentang" className="py-10 md:py-20">
         <div>

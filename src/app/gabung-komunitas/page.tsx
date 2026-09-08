@@ -4,6 +4,7 @@ import { useState } from "react"
 import { ArrowUpRight, Check, Loader2 } from "lucide-react"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
+import { toast } from "@/components/ui/Sonner"
 
 export default function JoinForm() {
   const router = useRouter()
@@ -20,7 +21,10 @@ export default function JoinForm() {
 
     setIsSubmitting(false)
     setIsSuccess(true)
-
+    toast.success(
+      "Pendaftaran berhasil",
+      "Data pendaftaran kamu berhasil dikirim."
+    )
     setTimeout(() => {
       router.push("/")
     }, 2000)

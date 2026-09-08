@@ -10,32 +10,32 @@ import {
 import { Toaster, toast as sonnerToast } from "sonner"
 
 export const toast = {
-  success: (message: string, description?: string) => {
-    sonnerToast.success(message, {
+  success: (title: string, description?: string) => {
+    sonnerToast.success(title, {
       description,
     })
   },
 
-  error: (message: string, description?: string) => {
-    sonnerToast.error(message, {
+  error: (title: string, description?: string) => {
+    sonnerToast.error(title, {
       description,
     })
   },
 
-  warning: (message: string, description?: string) => {
-    sonnerToast.warning(message, {
+  warning: (title: string, description?: string) => {
+    sonnerToast.warning(title, {
       description,
     })
   },
 
-  info: (message: string, description?: string) => {
-    sonnerToast.info(message, {
+  info: (title: string, description?: string) => {
+    sonnerToast.info(title, {
       description,
     })
   },
 
-  loading: (message: string) => {
-    return sonnerToast.loading(message)
+  loading: (title: string) => {
+    return sonnerToast.loading(title)
   },
 
   dismiss: (id?: string | number) => {
@@ -52,69 +52,95 @@ export function ToastProvider() {
       expand={false}
       closeButton
       duration={3500}
-      gap={8}
-      offset={20}
+      gap={10}
+      offset={24}
       visibleToasts={4}
       toastOptions={{
         classNames: {
-          toast:
-            "group flex w-full items-start gap-3 rounded-xl border border-black/10 bg-white px-4 py-3 shadow-xl",
+          toast: `
+            group
+            flex
+            w-full
+            items-start
+            gap-3
+            rounded-2xl
+            border
+            border-karsa-black/[0.08]
+            bg-white
+            px-4
+            py-3.5
+            shadow-[0_8px_30px_rgba(0,0,0,0.08)]
+          `,
 
-          title:
-            "text-sm font-semibold text-karsa-black",
+          title: `
+            text-[13px]
+            font-semibold
+            leading-5
+            tracking-[-0.01em]
+            text-karsa-black
+          `,
 
-          description:
-            "mt-0.5 text-xs leading-relaxed text-karsa-black/50",
+          description: `
+            mt-0.5
+            text-[12px]
+            font-normal
+            leading-5
+            text-karsa-black/45
+          `,
 
-          closeButton:
-            "border-0 bg-transparent text-karsa-black/30 hover:text-karsa-black",
+          closeButton: `
+            border-0
+            bg-transparent
+            text-karsa-black/25
+            transition-colors
+            hover:bg-transparent
+            hover:text-karsa-black
+          `,
 
-          success:
-            "border-karsa-primary/15",
-
-          error:
-            "border-red-200",
-
-          warning:
-            "border-yellow-200",
-
-          info:
-            "border-blue-200",
+          success: "",
+          error: "",
+          warning: "",
+          info: "",
         },
       }}
       icons={{
         success: (
           <CheckCircle2
             size={18}
-            className="text-karsa-primary"
+            strokeWidth={2}
+            className="text-karsa-black/70"
           />
         ),
 
         error: (
           <XCircle
             size={18}
-            className="text-red-500"
+            strokeWidth={2}
+            className="text-karsa-black/70"
           />
         ),
 
         warning: (
           <AlertTriangle
             size={18}
-            className="text-yellow-500"
+            strokeWidth={2}
+            className="text-karsa-black/70"
           />
         ),
 
         info: (
           <Info
             size={18}
-            className="text-blue-500"
+            strokeWidth={2}
+            className="text-karsa-black/70"
           />
         ),
 
         loading: (
           <Loader2
             size={18}
-            className="animate-spin text-karsa-primary"
+            strokeWidth={2}
+            className="animate-spin text-karsa-black/60"
           />
         ),
       }}
