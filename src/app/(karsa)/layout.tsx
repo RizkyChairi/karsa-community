@@ -15,7 +15,7 @@ export default function KarsaLayout({
         {children}
       </main>
       <Footer />
-      {/* <FloatingVideo /> */}
+      <FloatingVideo />
     </>
   )
 }
