@@ -18,9 +18,9 @@ Project ini dikembangkan secara kolaboratif dengan pembagian tanggung jawab berd
 
 `██████████████████░░` **87.5%**
 
-|      Status     | Description            |
+|     Status      | Description            |
 | :-------------: | ---------------------- |
-|     **DONE**    | Task telah selesai     |
+|    **DONE**     | Task telah selesai     |
 | **IN PROGRESS** | Task sedang dikerjakan |
 |    **TO DO**    | Task belum dikerjakan  |
 
@@ -28,16 +28,16 @@ Project ini dikembangkan secara kolaboratif dengan pembagian tanggung jawab berd
 
 ## Task Management
 
-| No. | Task                                            | PIC                 |      Status     |          Issue         |
-| :-: | ----------------------------------------------- | ------------------- | :-------------: | :--------------------: |
-|  01 | Membuat Design Landing Page                     | **Anggita — UI/UX** |     **DONE**    |  [#4](../../issues/4)  |
-|  02 | Membuat Navbar                                  | **Jona — FE**       |     **DONE**    |  [#5](../../issues/5)  |
-|  03 | Membuat Page Beranda                            | **Jona — FE**       |     **DONE**    |  [#6](../../issues/6)  |
-|  04 | Membuat Page Tentang Kami — Tentang Karsa       | **Jona — FE**       |     **DONE**    |  [#7](../../issues/7)  |
-|  05 | Membuat Page Tentang Kami — Visi & Misi         | **Jona — FE**       |     **DONE**    |  [#8](../../issues/8)  |
-|  06 | Membuat Page Tentang Kami — Program             | **Jona — FE**       |     **DONE**    |  [#9](../../issues/9)  |
-|  07 | Membuat Page Tentang Kami — Dampak & Kontribusi | **Jona — FE**       |     **DONE**    | [#10](../../issues/10) |
-|  08 | Membuat Page Kegiatan                           | **Jona — FE**       | **IN PROGRESS** | [#11](../../issues/11) |
+| No. | Task                                            | PIC                 |  Status  |         Issue          |
+| :-: | ----------------------------------------------- | ------------------- | :------: | :--------------------: |
+| 01  | Membuat Design Landing Page                     | **Anggita — UI/UX** | **DONE** |  [#4](../../issues/4)  |
+| 02  | Membuat Navbar                                  | **Jona — FE**       | **DONE** |  [#5](../../issues/5)  |
+| 03  | Membuat Page Beranda                            | **Jona — FE**       | **DONE** |  [#6](../../issues/6)  |
+| 04  | Membuat Page Tentang Kami — Tentang Karsa       | **Jona — FE**       | **DONE** |  [#7](../../issues/7)  |
+| 05  | Membuat Page Tentang Kami — Visi & Misi         | **Jona — FE**       | **DONE** |  [#8](../../issues/8)  |
+| 06  | Membuat Page Tentang Kami — Program             | **Jona — FE**       | **DONE** |  [#9](../../issues/9)  |
+| 07  | Membuat Page Tentang Kami — Dampak & Kontribusi | **Jona — FE**       | **DONE** | [#10](../../issues/10) |
+| 08  | Membuat Page Kegiatan                           | **Jona — FE**       | **DONE** | [#11](../../issues/11) |
 
 ---
 
@@ -66,12 +66,6 @@ Project ini dikembangkan secara kolaboratif dengan pembagian tanggung jawab berd
 | Program             | **DONE** |
 | Dampak & Kontribusi | **DONE** |
 
-### In Progress
-
-| Task          | PIC       |      Status     |
-| ------------- | --------- | :-------------: |
-| Page Kegiatan | Jona — FE | **IN PROGRESS** |
-
 ### To Do
 
 Task berikutnya akan ditambahkan ke dalam **GitHub Issues** sesuai prioritas dan hasil koordinasi tim.
@@ -80,46 +74,53 @@ Task berikutnya akan ditambahkan ke dalam **GitHub Issues** sesuai prioritas dan
 
 ## Project Status
 
-| Area            |      Status     |
-| --------------- | :-------------: |
-| UI/UX Design    |     **DONE**    |
-| Landing Page    |     **DONE**    |
-| Navigation      |     **DONE**    |
-| Tentang Kami    |     **DONE**    |
-| Kegiatan        | **IN PROGRESS** |
+| Area         |  Status  |
+| ------------ | :------: |
+| UI/UX Design | **DONE** |
+| Landing Page | **DONE** |
+| Navigation   | **DONE** |
+| Tentang Kami | **DONE** |
+| Kegiatan     | **DONE** |
 
 ---
 
 ## Tampilan Website
 
 ### Landing Page
+
 <p align="center">
   <img src="./public/images/about/Karsa Community.png" width="800">
 </p>
 
 ### Halaman Kegiatan
+
 <p align="center">
   <img src="./public/images/about/Kegiatan.png" width="800">
 </p>
 
 ### Halaman detail kegiatan
+
 <p align="center">
   <img src="./public/images/about/Detail kegiatan.png" width="800">
 </p>
 
 ### Halaman Galeri
+
 <p align="center">
   <img src="./public/images/about/Galeri.png" width="800">
 </p>
 
 ### Halaman detail galeri
+
 <p align="center">
   <img src="./public/images/about/Detail Galeri.png" width="800">
 </p>
 
+### Halaman Form Gabung Komunitas
 
-
-
+<p align="center">
+  <img src="./public/images/about/Form Gabung Komunitas.png" width="800">
+</p>
 
 ## Project Principle
 
