@@ -1,18 +1,77 @@
+
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
-import ScrollReveal from "@/components/ui/ScrollReveal"
-import { galleries } from "@/constants/Galleries"
+import { useEffect, useState } from "react"
 
-const visibleGalleries = galleries.slice(0, 4)
+import ScrollReveal from "@/components/ui/ScrollReveal"
+
+type Gallery = {
+  id: string
+  slug: string
+  title: string
+  shortDescription: string
+  description: string
+  category: string
+  location: string
+  date: string
+  time: string
+  image: string
+  images: string[]
+  participants: string
+  organizer: string
+  partners: string[]
+  impact: string
+  activities: string[]
+  tags: string[]
+  status: string
+  featured: boolean
+}
+
+type GalleryResponse = {
+  success: boolean
+  data: Gallery[]
+}
 
 export default function GallerySection() {
+  const [galleries, setGalleries] = useState<Gallery[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchGalleries = async () => {
+      try {
+        const response = await fetch(
+          "http://localhost:3001/api/galleries"
+        )
+
+        if (!response.ok) {
+          throw new Error("Gagal mengambil data galeri")
+        }
+
+        const result: GalleryResponse = await response.json()
+
+        setGalleries(result.data)
+      } catch (error) {
+        console.error("Error fetch galleries:", error)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchGalleries()
+  }, [])
+
+  const visibleGalleries = galleries.slice(0, 4)
+
   return (
     <section className="px-4 py-20 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl">
 
         {/* Heading */}
         <div className="mb-10 grid grid-cols-1 gap-8 md:grid-cols-[1.2fr_0.8fr] md:items-end md:gap-16">
+
           <ScrollReveal direction="up" duration={0.8}>
             <div>
               <p className="mb-2 text-sm font-medium text-karsa-black/50">
@@ -38,63 +97,94 @@ export default function GallerySection() {
               relawan, dan masyarakat dalam berbagai aksi nyata.
             </p>
           </ScrollReveal>
+
         </div>
 
-        {/* Gallery Grid */}
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {visibleGalleries.map((gallery, index) => (
-            <ScrollReveal
-              key={gallery.id}
-              direction="up"
-              duration={0.7}
-              delay={index * 0.08}
-            >
-              <Link
-                href={`/galeri/${gallery.slug}`}
-                className="group block"
-              >
-                <article className="overflow-hidden rounded-2xl bg-neutral-100">
+        {/* Loading */}
+        {loading ? (
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {[1, 2, 3, 4].map((item) => (
+              <div
+                key={item}
+                className="aspect-[4/3] animate-pulse rounded-2xl bg-black/5"
+              />
+            ))}
+          </div>
+        ) : (
+          <>
+            {/* Gallery Grid */}
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
 
-                  {/* Image */}
-                  <div className="relative aspect-[4/3] overflow-hidden">
-                    <Image
-                      src={gallery.image}
-                      alt={gallery.title}
-                      fill
-                      sizes="(max-width: 640px) 100vw, 50vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-                    />
+              {visibleGalleries.map((gallery, index) => (
+                <ScrollReveal
+                  key={gallery.id}
+                  direction="up"
+                  duration={0.7}
+                  delay={index * 0.08}
+                >
+                  <Link
+                    href={`/galeri/${gallery.slug}`}
+                    className="group block"
+                  >
+                    <article className="overflow-hidden rounded-2xl bg-neutral-100">
 
-                    {/* Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                      {/* Image */}
+                      <div className="relative aspect-[4/3] overflow-hidden">
 
-                    {/* Content */}
-                    <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
-                      <div className="mb-2 flex items-center gap-2 text-xs font-medium text-white/70">
-                        <span>{gallery.category}</span>
-                        <span>•</span>
-                        <span>{gallery.location}</span>
-                      </div>
-
-                      <div className="flex items-end justify-between gap-4">
-                        <h3 className="max-w-[85%] text-xl font-semibold leading-tight tracking-tight text-white sm:text-2xl">
-                          {gallery.title}
-                        </h3>
-
-                        <ArrowUpRight
-                          size={20}
-                          strokeWidth={1.7}
-                          className="shrink-0 text-white transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                        <Image
+                          src={gallery.image}
+                          alt={gallery.title}
+                          fill
+                          sizes="(max-width: 640px) 100vw, 50vw"
+                          className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                         />
-                      </div>
-                    </div>
 
-                  </div>
-                </article>
-              </Link>
-            </ScrollReveal>
-          ))}
-        </div>
+                        {/* Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+
+                        {/* Content */}
+                        <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
+
+                          <div className="mb-2 flex items-center gap-2 text-xs font-medium text-white/70">
+                            <span>{gallery.category}</span>
+                            <span>•</span>
+                            <span>{gallery.location}</span>
+                          </div>
+
+                          <div className="flex items-end justify-between gap-4">
+
+                            <h3 className="max-w-[85%] text-xl font-semibold leading-tight tracking-tight text-white sm:text-2xl">
+                              {gallery.title}
+                            </h3>
+
+                            <ArrowUpRight
+                              size={20}
+                              strokeWidth={1.7}
+                              className="shrink-0 text-white transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                            />
+
+                          </div>
+
+                        </div>
+
+                      </div>
+                    </article>
+                  </Link>
+                </ScrollReveal>
+              ))}
+
+            </div>
+
+            {/* Empty */}
+            {visibleGalleries.length === 0 && (
+              <div className="py-16 text-center">
+                <p className="text-sm text-karsa-black/50">
+                  Belum ada galeri.
+                </p>
+              </div>
+            )}
+          </>
+        )}
 
         {/* CTA */}
         <ScrollReveal
@@ -103,6 +193,7 @@ export default function GallerySection() {
           delay={0.15}
         >
           <div className="mt-8 flex justify-center">
+
             <Link
               href="/galeri"
               className="group flex items-center gap-2 text-sm font-medium text-karsa-black"
@@ -117,6 +208,7 @@ export default function GallerySection() {
                 className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
               />
             </Link>
+
           </div>
         </ScrollReveal>
 
@@ -124,3 +216,4 @@ export default function GallerySection() {
     </section>
   )
 }
+
