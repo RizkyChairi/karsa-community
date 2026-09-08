@@ -90,6 +90,15 @@ Task berikutnya akan ditambahkan ke dalam **GitHub Issues** sesuai prioritas dan
 
 ---
 
+## Tampilan Website
+
+### Landing Page
+<p align="center">
+  <img src="./public/images/about/Karsa Community.png" width="800">
+</p>
+
+
+
 
 ## Project Principle
 
