@@ -134,7 +134,7 @@ export default function LatestActivities() {
                     delay={index === 1 ? 1 : index * 0.2}
                   >
                     <Link
-                      href={`/ kegiatan / ${activity.slug} `}
+                      href={`/kegiatan/${activity.slug} `}
                       className="group block overflow-hidden rounded-3xl border border-black/10 bg-white transition duration-300 hover:-translate-y-1 hover:shadow-xl"
                     >
 
